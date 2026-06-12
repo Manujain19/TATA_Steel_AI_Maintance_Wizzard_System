@@ -1,10 +1,4 @@
 [project]
-name = "tata-steel-ai-maintenance-wizard"
-version = "1.0.0"
-requires-python = ">=3.11"
-
-[tool.vercel]
-entrypoint = "backend.main:app"[project]
 name = "tata-steel-ai-maintance-wizard"
 version = "1.0.0"
 requires-python = ">=3.11"
