@@ -1,0 +1,101 @@
+equipment_id,part,available_qty,lead_time_days,criticality
+TSA-UTL-STG-019,oil purifier filter,3,14,critical
+TSA-SIN-CDR-012,belt scraper,9,5,high
+HRM-ROLL-01,bearing seal kit,1,28,critical
+TSA-SIN-EFN-013,vibration sensor,2,18,critical
+TSA-SMS-EAF-022,bushing gasket,1,7,critical
+TSA-BF-CPM-005,pump bearing kit,1,35,critical
+TSA-RM-GBX-002,bearing kit,3,21,critical
+TSA-UTL-STG-019,steam seal kit,8,28,critical
+TSA-BF-BLR-004,blower bearing kit,3,5,critical
+TSA-SMS-EAF-022,temperature relay,5,21,critical
+TSA-UTL-GCP-011,inlet filter,3,28,critical
+TSA-SIN-CDR-012,gear coupling,0,10,high
+TSA-UTL-CTP-017,flow transmitter,0,18,high
+TSA-CKE-EFN-010,fan bearing kit,8,5,high
+TSA-CKE-EFN-010,drive belt set,12,3,high
+TSA-BF-BLR-004,inlet guide actuator,12,3,critical
+TSA-UTL-GCP-011,pressure control valve,1,18,critical
+TSA-UTL-STG-019,oil purifier filter,5,35,critical
+TSA-UTL-GCP-011,inlet filter,0,35,critical
+HRM-COIL-03,mandrel segment set,2,35,critical
+TSA-RM-GBX-002,oil analysis kit,8,35,critical
+TSA-RM-HPP-003,hydraulic seal kit,0,35,critical
+TSA-SMS-LTC-008,traction motor brush kit,2,7,critical
+TSA-SMS-APU-007,argon regulator,2,3,high
+TSA-RM-HPP-003,servo valve,2,28,critical
+TSA-CCM-ROL-009,caster roller bearing,5,10,critical
+TSA-BF-HBV-006,valve actuator kit,1,28,critical
+TSA-RM-HPP-003,servo valve,2,14,critical
+HRM-COIL-03,hydraulic expansion valve,8,5,critical
+TSA-SMS-LTC-008,traction motor brush kit,5,3,critical
+TSA-BF-CPM-005,impeller set,5,35,critical
+TSA-SIN-SCR-023,vibration isolator,12,10,high
+TSA-CCM-ROL-009,rotary union kit,3,7,critical
+TSA-CCM-ROL-009,roller shell,2,14,critical
+TSA-RM-MTR-001,cooling fan assembly,0,14,critical
+TSA-SIN-CDR-012,motor overload relay,3,10,high
+TSA-RM-GBX-002,gear set,0,18,critical
+TSA-RM-MTR-001,RTD temperature sensor,0,7,critical
+TSA-UTL-STG-019,turbine bearing,1,21,critical
+TSA-SMS-APU-007,purge hose,9,5,high
+TSA-SIN-EFN-013,fan bearing kit,0,10,critical
+TSA-UTL-CTP-017,mechanical seal,3,14,high
+TSA-BF-CHG-021,idler roller set,0,28,critical
+TSA-RM-GBX-002,bearing kit,8,5,critical
+TSA-SIN-EFN-013,fan blade set,3,10,critical
+TSA-UTL-CTP-017,impeller set,0,35,high
+TSA-RM-CNV-020,belt fastener kit,10,5,high
+TSA-SIN-CDR-012,belt scraper,9,7,high
+TSA-UTL-GCP-011,inlet filter,8,35,critical
+TSA-SIN-SCR-023,screen deck panel,9,3,high
+TSA-UTL-WTP-018,mechanical seal,6,7,high
+TSA-UTL-CTP-017,pump bearing kit,5,7,high
+TSA-UTL-GCP-011,pressure control valve,1,28,critical
+HRM-COIL-03,hydraulic expansion valve,8,14,critical
+TSA-SIN-SCR-023,vibration isolator,5,5,high
+TSA-BF-CHG-021,drive pulley lagging,0,10,critical
+TSA-SIN-CDR-012,motor overload relay,6,7,high
+TSA-RM-CNV-020,belt fastener kit,8,3,high
+TSA-CCM-ROL-009,rotary union kit,2,28,critical
+TSA-RM-GBX-002,oil analysis kit,5,7,critical
+TSA-SIN-EFN-013,vibration sensor,0,10,critical
+HRM-COIL-03,mandrel segment set,0,18,critical
+TSA-UTL-WTP-018,mechanical seal,12,5,high
+TSA-RM-GBX-002,gearbox oil filter,0,18,critical
+TSA-SMS-LTC-008,position encoder,10,5,critical
+TSA-UTL-WTP-018,pump bearing,4,5,high
+TSA-RM-MTR-001,cooling fan assembly,0,35,critical
+TSA-SMS-LTC-008,drive chain,0,10,critical
+TSA-CCM-ROL-009,caster roller bearing,0,18,critical
+TSA-RM-CNV-020,tracking switch,0,7,high
+TSA-SIN-SCR-023,screen deck panel,8,3,high
+TSA-SMS-APU-007,purge hose,2,21,high
+TSA-UTL-CTP-017,flow transmitter,11,7,high
+TSA-RM-CNV-020,tracking switch,0,14,high
+TSA-SIN-CDR-012,drive bearing,6,10,high
+TSA-RM-MTR-001,cooling fan assembly,5,35,critical
+TSA-UTL-STG-019,governor valve kit,1,5,critical
+HRM-ROLL-01,lubrication flow sensor,2,28,critical
+TSA-SMS-LTC-008,position encoder,9,5,critical
+TSA-BF-CHG-021,drive pulley lagging,8,28,critical
+HRM-COIL-03,hydraulic expansion valve,0,7,critical
+TSA-RM-GBX-002,bearing kit,0,35,critical
+TSA-BF-CPM-005,flow transmitter,1,14,critical
+TSA-BF-HBV-006,valve actuator kit,0,5,critical
+TSA-CKE-EFN-010,fan blade set,4,3,high
+TSA-SIN-SCR-023,exciter bearing,6,3,high
+HRM-COIL-03,wrapper roll bearing,5,10,critical
+TSA-SMS-LTC-008,position encoder,8,18,critical
+TSA-UTL-CTP-017,mechanical seal,8,5,high
+TSA-BF-CPM-005,impeller set,0,18,critical
+TSA-UTL-DCF-015,fan bearing,5,14,high
+HRM-COIL-03,mandrel segment set,0,10,critical
+TSA-UTL-DCF-015,duct damper actuator,5,28,high
+TSA-BF-CHG-021,idler roller set,8,18,critical
+TSA-BF-HBV-006,valve seat ring,0,14,critical
+TSA-SIN-CDR-012,gear coupling,3,28,high
+TSA-SIN-CDR-012,motor overload relay,5,5,high
+TSA-UTL-DCF-015,fan bearing,5,28,high
+TSA-RM-MTR-001,cooling fan assembly,2,35,critical
+TSA-SIN-SCR-023,screen deck panel,9,10,high

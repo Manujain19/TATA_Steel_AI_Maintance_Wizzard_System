@@ -1,0 +1,6 @@
+message_id,equipment_id,timestamp,source_system,fault_code,message,severity
+FM-001,HRM-ROLL-01,2026-06-06T13:42:00,PLC,VIBRATION_HIGH,Drive-side bearing vibration crossed trip threshold,high
+FM-002,HRM-ROLL-01,2026-06-06T13:45:00,HMI,ROLL_GAP_UNSTABLE,Roll gap variation above process tolerance,medium
+FM-003,HRM-FURN-02,2026-06-06T13:50:00,PLC,HYD_PRESS_LOW,Walking beam hydraulic pressure below warning threshold,high
+FM-004,HRM-COIL-03,2026-06-06T13:53:00,PLC,MANDREL_EXPANSION_FAIL,Mandrel expansion confirmation not received,critical
+

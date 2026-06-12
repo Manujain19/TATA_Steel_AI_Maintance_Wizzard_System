@@ -1,0 +1,74 @@
+{
+  "temperature": {
+    "normal": [
+      45,
+      75
+    ],
+    "warning": 82,
+    "critical": 92,
+    "unit": "C"
+  },
+  "vibration": {
+    "normal": [
+      1.1,
+      4.0
+    ],
+    "warning": 5.2,
+    "critical": 7.1,
+    "unit": "mm/s"
+  },
+  "pressure": {
+    "normal": [
+      105,
+      155
+    ],
+    "warning_low": 95,
+    "critical_low": 80,
+    "unit": "bar"
+  },
+  "flow": {
+    "normal": [
+      120,
+      260
+    ],
+    "warning_low": 95,
+    "critical_low": 70,
+    "unit": "m3/h"
+  },
+  "oil_quality": {
+    "normal": [
+      72,
+      100
+    ],
+    "warning_low": 55,
+    "critical_low": 40,
+    "unit": "index"
+  },
+  "current": {
+    "normal": [
+      110,
+      340
+    ],
+    "warning": 370,
+    "critical": 420,
+    "unit": "A"
+  },
+  "utilization": {
+    "normal": [
+      55,
+      92
+    ],
+    "warning": 96,
+    "critical": 99,
+    "unit": "%"
+  },
+  "energy_consumption": {
+    "normal": [
+      80,
+      310
+    ],
+    "warning": 360,
+    "critical": 420,
+    "unit": "kWh"
+  }
+}

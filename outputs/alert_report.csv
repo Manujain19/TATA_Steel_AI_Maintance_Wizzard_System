@@ -1,0 +1,26 @@
+equipment_id,equipment_name,risk_score,risk_level
+TSA-RM-HPP-003,Hydraulic Power Pack,100.0,critical
+TSA-CCM-ROL-009,Continuous Casting Roller,100.0,critical
+TSA-BF-CHG-021,Blast Furnace Charging Conveyor,100.0,critical
+HRM-ROLL-01,Finishing Mill Work Roll,100.0,critical
+HRM-COIL-03,Down Coiler Mandrel,98.3,critical
+TSA-RM-GBX-002,Rolling Mill Gearbox,92.9,critical
+TSA-RM-MTR-001,Rolling Mill Drive Motor,87.4,high
+TSA-SIN-EFN-013,Sinter Exhaust Fan,83.4,high
+TSA-UTL-GCP-011,Gas Compressor,80.8,high
+TSA-BF-CPM-005,Blast Furnace Cooling Pump,74.2,medium
+TSA-UTL-CTP-017,Cooling Tower Pump,74.2,medium
+TSA-BF-HBV-006,Hot Blast Valve,73.1,medium
+TSA-RM-CNV-020,Rolling Mill Conveyor System,70.2,medium
+TSA-UTL-STG-019,Steam Turbine Generator,69.2,medium
+TSA-SIN-CDR-012,Sinter Conveyor Drive,68.8,medium
+TSA-UTL-DCF-015,Dust Collection Fan,64.2,medium
+TSA-SMS-EAF-022,Electric Arc Furnace Transformer,60.8,medium
+TSA-SMS-LTC-008,Ladle Transfer Car,55.6,medium
+TSA-SMS-APU-007,Argon Purging Unit,47.6,low
+TSA-BF-BLR-004,Blast Furnace Blower,42.6,low
+TSA-CKE-EFN-010,Coke Oven Exhaust Fan,42.6,low
+TSA-RMH-CNV-014,Raw Material Conveyor,42.6,low
+TSA-UTL-AHU-016,Air Handling Unit,42.6,low
+TSA-UTL-WTP-018,Water Treatment Pump,42.6,low
+TSA-SIN-SCR-023,Sinter Screen Drive,42.6,low

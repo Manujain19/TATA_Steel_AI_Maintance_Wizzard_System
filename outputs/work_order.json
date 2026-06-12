@@ -1,0 +1,162 @@
+{
+  "work_order_id": "WO-2026-1717",
+  "created_at": "2026-06-12T17:17",
+  "equipment_id": "TSA-RM-MTR-001",
+  "equipment_name": "Rolling Mill Drive Motor",
+  "asset": "TSA-RM-MTR-001",
+  "priority": "P2 High",
+  "problem": "winding insulation degradation",
+  "root_cause": "thermal overload",
+  "status": "Open",
+  "lifecycle": [
+    "Open",
+    "Assigned",
+    "In Progress",
+    "Completed",
+    "Closed"
+  ],
+  "estimated_duration_minutes": 180,
+  "estimated_manpower": 4,
+  "estimated_cost_inr": 85000,
+  "required_skills": [
+    "mechanical inspection",
+    "maintenance safety",
+    "hydraulic troubleshooting",
+    "vibration analysis",
+    "spare planning"
+  ],
+  "required_parts": [
+    {
+      "part": "cooling fan assembly",
+      "available_qty": 0,
+      "lead_time_days": 14,
+      "criticality": "critical"
+    },
+    {
+      "part": "RTD temperature sensor",
+      "available_qty": 0,
+      "lead_time_days": 7,
+      "criticality": "critical"
+    },
+    {
+      "part": "cooling fan assembly",
+      "available_qty": 0,
+      "lead_time_days": 35,
+      "criticality": "critical"
+    },
+    {
+      "part": "cooling fan assembly",
+      "available_qty": 5,
+      "lead_time_days": 35,
+      "criticality": "critical"
+    },
+    {
+      "part": "cooling fan assembly",
+      "available_qty": 2,
+      "lead_time_days": 35,
+      "criticality": "critical"
+    }
+  ],
+  "shutdown_duration_hours": 4,
+  "safety_permit": "Required",
+  "safety_classification": "high energy isolation",
+  "assigned_team": "Mechanical Maintenance",
+  "owner_role": "Maintenance Engineer",
+  "approval_role": "Production Supervisor",
+  "safety_steps": [
+    "Confirm line restriction or stop-window approval.",
+    "Apply lockout/tagout for the affected equipment drive and hydraulic circuit.",
+    "Verify zero stored energy before inspection."
+  ],
+  "tasks": [
+    {
+      "sequence": 1,
+      "task": "Move Rolling Mill Drive Motor to restricted operation and prepare a controlled stop window."
+    },
+    {
+      "sequence": 2,
+      "task": "Investigate winding insulation degradation caused by thermal overload; execute: Perform insulation resistance test."
+    },
+    {
+      "sequence": 3,
+      "task": "Perform vibration spectrum review, rotor balance check, and motor bearing inspection."
+    },
+    {
+      "sequence": 4,
+      "task": "Verify oil pump delivery, inspect lubrication circuit restriction, and clean asset-specific filters."
+    },
+    {
+      "sequence": 5,
+      "task": "Confirm hydraulic pressure locally, inspect pump cavitation, valve leakage, and seal failure paths."
+    },
+    {
+      "sequence": 6,
+      "task": "Trend motor current against load; inspect mechanical drag and expansion timing."
+    },
+    {
+      "sequence": 7,
+      "task": "Use prior case FH-0015 as reference: Perform insulation resistance test."
+    },
+    {
+      "sequence": 8,
+      "task": "Procurement action: cooling fan assembly has qty=0 and lead_time=35 days; escalate now."
+    },
+    {
+      "sequence": 9,
+      "task": "Procurement action: cooling fan assembly has qty=5 and lead_time=35 days; escalate now."
+    },
+    {
+      "sequence": 10,
+      "task": "Procurement action: cooling fan assembly has qty=2 and lead_time=35 days; escalate now."
+    },
+    {
+      "sequence": 11,
+      "task": "Procurement action: cooling fan assembly has qty=0 and lead_time=14 days; escalate now."
+    },
+    {
+      "sequence": 12,
+      "task": "Procurement action: RTD temperature sensor has qty=0 and lead_time=7 days; escalate now."
+    },
+    {
+      "sequence": 13,
+      "task": "Create digital log entry for TSA-RM-MTR-001 with alert EARLY_WARNING."
+    }
+  ],
+  "required_spares": [
+    {
+      "part": "cooling fan assembly",
+      "available_qty": 0,
+      "lead_time_days": 14,
+      "criticality": "critical"
+    },
+    {
+      "part": "RTD temperature sensor",
+      "available_qty": 0,
+      "lead_time_days": 7,
+      "criticality": "critical"
+    },
+    {
+      "part": "cooling fan assembly",
+      "available_qty": 0,
+      "lead_time_days": 35,
+      "criticality": "critical"
+    },
+    {
+      "part": "cooling fan assembly",
+      "available_qty": 5,
+      "lead_time_days": 35,
+      "criticality": "critical"
+    },
+    {
+      "part": "cooling fan assembly",
+      "available_qty": 2,
+      "lead_time_days": 35,
+      "criticality": "critical"
+    }
+  ],
+  "acceptance_criteria": [
+    "No active trip-level threshold remains after restart.",
+    "Vibration, pressure, and current trends remain inside warning limits for 30 minutes.",
+    "Engineer feedback and actual root cause are recorded in the digital log."
+  ]
+}

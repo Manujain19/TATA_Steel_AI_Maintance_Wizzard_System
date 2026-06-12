@@ -1,0 +1,343 @@
+{
+  "generated_at": "2026-06-12T11:47:22.598351+00:00",
+  "query": "Investigate Rolling Mill Drive Motor (TSA-RM-MTR-001). Active alert: EARLY_WARNING. Sensor anomalies: vibration 4.97 mm/s, hydraulic pressure 106.7 bar, oil pressure 2.5 bar, motor current 337.8 A. Known failure modes: winding insulation degradation, rotor imbalance, overheating. Generate asset-specific diagnosis, RUL, business impact, root cause, maintenance action, and spare strategy.",
+  "agent_steps": [
+    "intake maintenance query and optional equipment id",
+    "retrieve relevant manuals, SOPs, and historical cases",
+    "evaluate condition-monitoring limits",
+    "estimate RUL from service age and condition penalty",
+    "score risk using condition, history severity, and spares constraints",
+    "generate prioritized maintenance and procurement actions"
+  ],
+  "equipment": {
+    "equipment_id": "TSA-RM-MTR-001",
+    "equipment_name": "Rolling Mill Drive Motor",
+    "active_alert": "EARLY_WARNING",
+    "timestamp": "2026-06-07T21:29:25",
+    "area": "Rolling Mill",
+    "type": "Drive Motor",
+    "criticality": "critical",
+    "status": "Restricted Operation"
+  },
+  "diagnosis": {
+    "probable_fault": "winding insulation degradation",
+    "probable_root_causes": [
+      "thermal overload",
+      "rotor eccentricity"
+    ],
+    "condition_breaches": [
+      {
+        "metric": "vibration_mm_s",
+        "value": 4.97,
+        "level": "warn",
+        "limit": 4.5
+      },
+      {
+        "metric": "motor_current_a",
+        "value": 337.8,
+        "level": "warn",
+        "limit": 320.0
+      },
+      {
+        "metric": "oil_pressure_bar",
+        "value": 2.5,
+        "level": "warn",
+        "limit": 2.8
+      },
+      {
+        "metric": "hydraulic_pressure_bar",
+        "value": 106.7,
+        "level": "warn",
+        "limit": 120.0
+      }
+    ],
+    "asset_failure_modes": [
+      {
+        "equipment_id": "TSA-RM-MTR-001",
+        "asset_name": "Rolling Mill Drive Motor",
+        "area": "Rolling Mill",
+        "asset_type": "Drive Motor",
+        "failure_mode": "winding insulation degradation",
+        "likely_root_cause": "thermal overload",
+        "recommended_action": "Perform insulation resistance test",
+        "primary_spare": "motor winding kit",
+        "production_tph": 145,
+        "base_repair_cost_inr": 420000
+      },
+      {
+        "equipment_id": "TSA-RM-MTR-001",
+        "asset_name": "Rolling Mill Drive Motor",
+        "area": "Rolling Mill",
+        "asset_type": "Drive Motor",
+        "failure_mode": "rotor imbalance",
+        "likely_root_cause": "cooling fan fouling",
+        "recommended_action": "Thermography on stator body",
+        "primary_spare": "cooling fan assembly",
+        "production_tph": 145,
+        "base_repair_cost_inr": 420000
+      },
+      {
+        "equipment_id": "TSA-RM-MTR-001",
+        "asset_name": "Rolling Mill Drive Motor",
+        "area": "Rolling Mill",
+        "asset_type": "Drive Motor",
+        "failure_mode": "overheating",
+        "likely_root_cause": "rotor eccentricity",
+        "recommended_action": "Inspect rotor balance and cooling fan",
+        "primary_spare": "RTD temperature sensor",
+        "production_tph": 145,
+        "base_repair_cost_inr": 420000
+      }
+    ]
+  },
+  "prediction": {
+    "method": "asset digital twin RUL blended with current condition breaches",
+    "service_interval_hours": 1800,
+    "operating_hours_since_service": 48668,
+    "health_index": 0.0,
+    "estimated_remaining_useful_life_hours": 1332,
+    "rul_label": "1332 hours",
+    "rul_explanation": "Uses Rolling Mill Drive Motor digital twin health, rated hours, active sensor anomalies, and asset-specific failure history."
+  },
+  "risk": {
+    "score": 87.4,
+    "level": "high",
+    "drivers": {
+      "condition_score": 48.0,
+      "historical_severity_score": 3,
+      "spares_penalty": 25.0
+    }
+  },
+  "priority": {
+    "urgency": "immediate",
+    "plant_bottleneck_priority": [
+      {
+        "equipment_id": "TSA-RM-HPP-003",
+        "equipment_name": "Hydraulic Power Pack",
+        "risk_score": 100.0,
+        "risk_level": "critical",
+        "selected": false
+      },
+      {
+        "equipment_id": "TSA-CCM-ROL-009",
+        "equipment_name": "Continuous Casting Roller",
+        "risk_score": 100.0,
+        "risk_level": "critical",
+        "selected": false
+      },
+      {
+        "equipment_id": "TSA-BF-CHG-021",
+        "equipment_name": "Blast Furnace Charging Conveyor",
+        "risk_score": 100.0,
+        "risk_level": "critical",
+        "selected": false
+      },
+      {
+        "equipment_id": "HRM-ROLL-01",
+        "equipment_name": "Finishing Mill Work Roll",
+        "risk_score": 100.0,
+        "risk_level": "critical",
+        "selected": false
+      },
+      {
+        "equipment_id": "HRM-COIL-03",
+        "equipment_name": "Down Coiler Mandrel",
+        "risk_score": 98.3,
+        "risk_level": "critical",
+        "selected": false
+      },
+      {
+        "equipment_id": "TSA-RM-GBX-002",
+        "equipment_name": "Rolling Mill Gearbox",
+        "risk_score": 92.9,
+        "risk_level": "critical",
+        "selected": false
+      },
+      {
+        "equipment_id": "TSA-RM-MTR-001",
+        "equipment_name": "Rolling Mill Drive Motor",
+        "risk_score": 87.4,
+        "risk_level": "high",
+        "selected": true
+      },
+      {
+        "equipment_id": "TSA-SIN-EFN-013",
+        "equipment_name": "Sinter Exhaust Fan",
+        "risk_score": 83.4,
+        "risk_level": "high",
+        "selected": false
+      },
+      {
+        "equipment_id": "TSA-UTL-GCP-011",
+        "equipment_name": "Gas Compressor",
+        "risk_score": 80.8,
+        "risk_level": "high",
+        "selected": false
+      },
+      {
+        "equipment_id": "TSA-BF-CPM-005",
+        "equipment_name": "Blast Furnace Cooling Pump",
+        "risk_score": 74.2,
+        "risk_level": "medium",
+        "selected": false
+      },
+      {
+        "equipment_id": "TSA-UTL-CTP-017",
+        "equipment_name": "Cooling Tower Pump",
+        "risk_score": 74.2,
+        "risk_level": "medium",
+        "selected": false
+      },
+      {
+        "equipment_id": "TSA-BF-HBV-006",
+        "equipment_name": "Hot Blast Valve",
+        "risk_score": 73.1,
+        "risk_level": "medium",
+        "selected": false
+      },
+      {
+        "equipment_id": "TSA-RM-CNV-020",
+        "equipment_name": "Rolling Mill Conveyor System",
+        "risk_score": 70.2,
+        "risk_level": "medium",
+        "selected": false
+      },
+      {
+        "equipment_id": "TSA-UTL-STG-019",
+        "equipment_name": "Steam Turbine Generator",
+        "risk_score": 69.2,
+        "risk_level": "medium",
+        "selected": false
+      },
+      {
+        "equipment_id": "TSA-SIN-CDR-012",
+        "equipment_name": "Sinter Conveyor Drive",
+        "risk_score": 68.8,
+        "risk_level": "medium",
+        "selected": false
+      },
+      {
+        "equipment_id": "TSA-UTL-DCF-015",
+        "equipment_name": "Dust Collection Fan",
+        "risk_score": 64.2,
+        "risk_level": "medium",
+        "selected": false
+      },
+      {
+        "equipment_id": "TSA-SMS-EAF-022",
+        "equipment_name": "Electric Arc Furnace Transformer",
+        "risk_score": 60.8,
+        "risk_level": "medium",
+        "selected": false
+      },
+      {
+        "equipment_id": "TSA-SMS-LTC-008",
+        "equipment_name": "Ladle Transfer Car",
+        "risk_score": 55.6,
+        "risk_level": "medium",
+        "selected": false
+      },
+      {
+        "equipment_id": "TSA-SMS-APU-007",
+        "equipment_name": "Argon Purging Unit",
+        "risk_score": 47.6,
+        "risk_level": "low",
+        "selected": false
+      },
+      {
+        "equipment_id": "TSA-BF-BLR-004",
+        "equipment_name": "Blast Furnace Blower",
+        "risk_score": 42.6,
+        "risk_level": "low",
+        "selected": false
+      },
+      {
+        "equipment_id": "TSA-CKE-EFN-010",
+        "equipment_name": "Coke Oven Exhaust Fan",
+        "risk_score": 42.6,
+        "risk_level": "low",
+        "selected": false
+      },
+      {
+        "equipment_id": "TSA-RMH-CNV-014",
+        "equipment_name": "Raw Material Conveyor",
+        "risk_score": 42.6,
+        "risk_level": "low",
+        "selected": false
+      },
+      {
+        "equipment_id": "TSA-UTL-AHU-016",
+        "equipment_name": "Air Handling Unit",
+        "risk_score": 42.6,
+        "risk_level": "low",
+        "selected": false
+      },
+      {
+        "equipment_id": "TSA-UTL-WTP-018",
+        "equipment_name": "Water Treatment Pump",
+        "risk_score": 42.6,
+        "risk_level": "low",
+        "selected": false
+      },
+      {
+        "equipment_id": "TSA-SIN-SCR-023",
+        "equipment_name": "Sinter Screen Drive",
+        "risk_score": 42.6,
+        "risk_level": "low",
+        "selected": false
+      }
+    ]
+  },
+  "recommendations": [
+    "Move Rolling Mill Drive Motor to restricted operation and prepare a controlled stop window.",
+    "Investigate winding insulation degradation caused by thermal overload; execute: Perform insulation resistance test.",
+    "Perform vibration spectrum review, rotor balance check, and motor bearing inspection.",
+    "Verify oil pump delivery, inspect lubrication circuit restriction, and clean asset-specific filters.",
+    "Confirm hydraulic pressure locally, inspect pump cavitation, valve leakage, and seal failure paths.",
+    "Trend motor current against load; inspect mechanical drag and expansion timing.",
+    "Use prior case FH-0015 as reference: Perform insulation resistance test.",
+    "Procurement action: cooling fan assembly has qty=0 and lead_time=35 days; escalate now.",
+    "Procurement action: cooling fan assembly has qty=5 and lead_time=35 days; escalate now.",
+    "Procurement action: cooling fan assembly has qty=2 and lead_time=35 days; escalate now.",
+    "Procurement action: cooling fan assembly has qty=0 and lead_time=14 days; escalate now.",
+    "Procurement action: RTD temperature sensor has qty=0 and lead_time=7 days; escalate now.",
+    "Create digital log entry for TSA-RM-MTR-001 with alert EARLY_WARNING."
+  ],
+  "traceability": [
+    {
+      "source": "failure_history",
+      "title": "FH-0015",
+      "score": 22.0,
+      "detail": "TSA-RM-MTR-001 Rolling Mill Drive Motor overheating: OVERHEATING. Symptoms: overheating pattern with vibration 4.97 mm/s, pressure 106.7 bar, oil quality 55.6. Root cause: rotor eccentricity. Action: Perform insulation resistance test."
+    },
+    {
+      "source": "failure_history",
+      "title": "FH-0077",
+      "score": 22.0,
+      "detail": "TSA-RM-MTR-001 Rolling Mill Drive Motor overheating: OVERHEATING. Symptoms: overheating pattern with vibration 4.97 mm/s, pressure 106.7 bar, oil quality 55.6. Root cause: rotor eccentricity. Action: Perform insulation resistance test."
+    },
+    {
+      "source": "failure_history",
+      "title": "FH-0104",
+      "score": 22.0,
+      "detail": "TSA-RM-MTR-001 Rolling Mill Drive Motor overheating: OVERHEATING. Symptoms: overheating pattern with vibration 4.97 mm/s, pressure 106.7 bar, oil quality 55.6. Root cause: rotor eccentricity. Action: Inspect rotor balance and cooling fan."
+    },
+    {
+      "source": "failure_history",
+      "title": "FH-0136",
+      "score": 22.0,
+      "detail": "TSA-RM-MTR-001 Rolling Mill Drive Motor overheating: OVERHEATING. Symptoms: overheating pattern with vibration 4.97 mm/s, pressure 106.7 bar, oil quality 55.6. Root cause: rotor eccentricity. Action: Perform insulation resistance test."
+    },
+    {
+      "source": "failure_history",
+      "title": "FH-0145",
+      "score": 22.0,
+      "detail": "TSA-RM-MTR-001 Rolling Mill Drive Motor overheating: OVERHEATING. Symptoms: overheating pattern with vibration 4.97 mm/s, pressure 106.7 bar, oil quality 55.6. Root cause: rotor eccentricity. Action: Inspect rotor balance and cooling fan."
+    }
+  ],
+  "assumptions": [
+    "RUL is an engineering estimate for demonstration, not a certified prediction.",
+    "Thresholds are configurable plant rules and should be calibrated with historian data.",
+    "LLM or SLM integration can replace the deterministic reasoning backend while preserving traceability."
+  ]
+}

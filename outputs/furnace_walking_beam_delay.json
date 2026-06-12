@@ -1,0 +1,122 @@
+{
+  "generated_at": "2026-06-06T19:07:35.439734+00:00",
+  "query": "Walking beam transfer is delayed and hydraulic pressure is low. Is this urgent?",
+  "agent_steps": [
+    "intake maintenance query and optional equipment id",
+    "retrieve relevant manuals, SOPs, and historical cases",
+    "evaluate condition-monitoring limits",
+    "estimate RUL from service age and condition penalty",
+    "score risk using condition, history severity, and spares constraints",
+    "generate prioritized maintenance and procurement actions"
+  ],
+  "equipment": {
+    "equipment_id": "HRM-FURN-02",
+    "equipment_name": "Reheating Furnace Walking Beam",
+    "active_alert": "HYD_PRESS_LOW",
+    "timestamp": "2026-06-06T13:55:00"
+  },
+  "diagnosis": {
+    "probable_fault": "HYD_PRESS_LOW",
+    "probable_root_causes": [
+      "Actuator seal leakage",
+      "Position sensor drift"
+    ],
+    "condition_breaches": [
+      {
+        "metric": "hydraulic_pressure_bar",
+        "value": 92.0,
+        "level": "trip",
+        "limit": 95.0
+      }
+    ]
+  },
+  "prediction": {
+    "method": "service interval adjusted by current condition breaches",
+    "service_interval_hours": 1600,
+    "operating_hours_since_service": 930,
+    "health_index": 29.8,
+    "estimated_remaining_useful_life_hours": 476,
+    "rul_label": "476 hours",
+    "rul_explanation": "Estimated remaining useful life from service age and condition penalties."
+  },
+  "risk": {
+    "score": 66.1,
+    "level": "high",
+    "drivers": {
+      "condition_score": 22.0,
+      "historical_severity_score": 3,
+      "spares_penalty": 18.0
+    }
+  },
+  "priority": {
+    "urgency": "immediate",
+    "plant_bottleneck_priority": [
+      {
+        "equipment_id": "HRM-COIL-03",
+        "equipment_name": "Down Coiler Mandrel",
+        "risk_score": 87.4,
+        "risk_level": "critical",
+        "selected": false
+      },
+      {
+        "equipment_id": "HRM-ROLL-01",
+        "equipment_name": "Finishing Mill Work Roll",
+        "risk_score": 86.4,
+        "risk_level": "critical",
+        "selected": false
+      },
+      {
+        "equipment_id": "HRM-FURN-02",
+        "equipment_name": "Reheating Furnace Walking Beam",
+        "risk_score": 66.1,
+        "risk_level": "high",
+        "selected": true
+      }
+    ]
+  },
+  "recommendations": [
+    "Move equipment to restricted operation and prepare a controlled stop window.",
+    "Confirm hydraulic pressure locally, inspect valve leakage, and prepare seal kit replacement.",
+    "Use prior case FH-003 as reference: Isolated circuit, changed seal kit, refilled hydraulic oil.",
+    "Procurement action: servo valve has qty=1 and lead_time=21 days; escalate now.",
+    "Procurement action: hydraulic seal kit has qty=0 and lead_time=18 days; escalate now.",
+    "Create digital log entry for HRM-FURN-02 with alert HYD_PRESS_LOW."
+  ],
+  "traceability": [
+    {
+      "source": "failure_history",
+      "title": "FH-003",
+      "score": 8.0,
+      "detail": "HRM-FURN-02 Reheating Furnace Walking Beam Hydraulic actuator: HYD_PRESS_LOW. Symptoms: walking beam delay; hydraulic pressure drop. Root cause: Actuator seal leakage. Action: Isolated circuit, changed seal kit, refilled hydraulic oil."
+    },
+    {
+      "source": "failure_history",
+      "title": "FH-004",
+      "score": 8.0,
+      "detail": "HRM-FURN-02 Reheating Furnace Walking Beam Position sensor: BEAM_POSITION_ERR. Symptoms: transfer delay; position mismatch. Root cause: Position sensor drift. Action: Recalibrated sensor and cleaned scale near guide."
+    },
+    {
+      "source": "equipment_manuals",
+      "title": "HRM-FURN-02 reheating furnace walking beam",
+      "score": 5.0,
+      "detail": "Criticality: high Common symptoms: - Slab transfer delay. - Hydraulic pressure instability. - Uneven furnace zone temperature. - Walking beam position error. Likely causes: - Hydraulic actuator leakage. - Scale buildup around skid or beam guides. - Furnace zone burner imbalance. - Position sensor drift. Checks: - Compare hydraulic pressure with walking beam travel time. - Inspect skid/beam guide for mechanical obs..."
+    },
+    {
+      "source": "maintenance_sops",
+      "title": "Hydraulic pressure instability SOP",
+      "score": 3.0,
+      "detail": "1. Confirm sensor reading from local gauge and control system historian. 2. Check pump, accumulator pressure, valve leakage, and seal condition. 3. If pressure drop affects a critical motion, stop the motion sequence and isolate the hydraulic circuit. 4. Review spare availability for seal kit, servo valve, and hose assembly. 5. Record action taken and actual root cause in the digital maintenance log."
+    },
+    {
+      "source": "maintenance_sops",
+      "title": "Catastrophic failure warning rule",
+      "score": 2.0,
+      "detail": "Generate a critical warning when an equipment item has at least two breached condition limits and one of the breached limits is tied to a high-criticality failure mode in the knowledge base. Treat low spare availability or lead time above 14 days as an escalation factor."
+    }
+  ],
+  "assumptions": [
+    "RUL is an engineering estimate for demonstration, not a certified prediction.",
+    "Thresholds are configurable plant rules and should be calibrated with historian data.",
+    "LLM or SLM integration can replace the deterministic reasoning backend while preserving traceability."
+  ]
+}

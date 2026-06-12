@@ -1,0 +1,5 @@
+indicator_id,equipment_id,timestamp,strip_temperature_c,strip_speed_mpm,cooling_water_flow_lpm,thickness_deviation_mm,surface_defect_signal,process_note
+PI-001,HRM-ROLL-01,2026-06-06T13:55:00,875,910,1450,0.18,chatter,High vibration correlates with roll gap variation
+PI-002,HRM-FURN-02,2026-06-06T13:55:00,1180,0,980,0.02,none,Transfer delay increases furnace residence-time variation
+PI-003,HRM-COIL-03,2026-06-06T13:55:00,690,740,1260,0.06,telescopic_coil,Tail-end slip correlates with expansion pressure drop
+

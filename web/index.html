@@ -1,0 +1,633 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Maintenance Wizard - Tata Steel AI Platform</title>
+    <link rel="stylesheet" href="/static/styles.css?v=inventory-knowledge-20260612" />
+    <style>
+      #startupOverlay,
+      .startup-overlay,
+      .startup-gate,
+      .startup-screen,
+      .ai-warmup-screen,
+      .ai-loading-screen,
+      .model-warmup-screen,
+      .warmup-overlay,
+      .preload-overlay,
+      .loading-overlay,
+      [data-warmup-overlay],
+      [data-startup-overlay] {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+      }
+      body.startup-blocked,
+      body.ai-warmup-active,
+      body.warmup-active,
+      body.preload-blocked,
+      body.loading-blocked {
+        overflow: auto !important;
+      }
+    </style>
+    <script>
+      window.__MW_DEMO_BOOT_VERSION__ = "ui-polish-20260611";
+      console.log("DEMO_BOOTSTRAP_INLINE", window.__MW_DEMO_BOOT_VERSION__);
+      function removeDemoStartupBlocker() {
+        document.querySelectorAll([
+          "#startupOverlay",
+          ".startup-overlay",
+          ".startup-gate",
+          ".startup-screen",
+          ".ai-warmup-screen",
+          ".ai-loading-screen",
+          ".model-warmup-screen",
+          ".warmup-overlay",
+          ".preload-overlay",
+          ".loading-overlay",
+          "[data-warmup-overlay]",
+          "[data-startup-overlay]"
+        ].join(", ")).forEach(function (element) {
+          console.log("Warmup gate source", element.id || element.className || element.tagName);
+          element.remove();
+        });
+        document.body && document.body.classList.remove("startup-blocked", "ai-warmup-active", "warmup-active", "preload-blocked", "loading-blocked");
+      }
+      document.addEventListener("DOMContentLoaded", removeDemoStartupBlocker);
+      window.addEventListener("load", removeDemoStartupBlocker);
+    </script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark tata-brand-mark" aria-label="Tata Steel">
+            <span class="tata-emblem">T</span>
+            <span class="tata-word">TATA</span>
+          </div>
+          <div>
+            <h1>Maintenance Wizard</h1>
+            <p>Tata Steel AI Platform</p>
+          </div>
+        </div>
+
+        <nav class="module-nav" id="moduleNav" aria-label="Application modules">
+          <button class="active" type="button" data-module="command-center">Command Center</button>
+          <button type="button" data-module="asset-intelligence">Asset Intelligence</button>
+          <button type="button" data-module="maintenance-planning">Maintenance Planning</button>
+          <button type="button" data-module="work-orders">Work Orders</button>
+          <button type="button" data-module="knowledge-hub">Knowledge Hub</button>
+          <button type="button" data-module="incident-replay">Incident Replay</button>
+          <button type="button" data-module="inventory-spares">Inventory & Spares</button>
+          <button type="button" data-module="executive-dashboard">Executive Dashboard</button>
+          <button type="button" data-module="reports">Reports</button>
+          <button type="button" data-module="settings">Settings</button>
+        </nav>
+
+        <label class="sidebar-search">
+          Global Search
+          <input id="globalSearch" type="search" placeholder="Asset, area, failure mode, spare" />
+        </label>
+        <div class="global-results" id="globalSearchResults"></div>
+
+        <p class="nav-label">Assets</p>
+        <nav class="equipment-list" id="equipmentList" aria-label="Equipment"></nav>
+
+        <div class="sidebar-footer">
+          <div class="engineer-card" aria-label="AI Engineer">
+            <div class="engineer-avatar">MJ</div>
+            <div>
+              <strong>Manu Jain</strong>
+              <span>AI Engineer</span>
+            </div>
+          </div>
+          <button class="secondary-button" id="runDemoButton" type="button">Run Executive Demo</button>
+        </div>
+      </aside>
+
+      <main class="workspace">
+        <section class="topbar">
+          <div>
+            <p class="eyebrow">Tata Steel Plant Operations</p>
+            <h2>Maintenance Wizard - Tata Steel AI Platform</h2>
+            <p class="topbar-subtitle">AI-Powered Industrial Reliability & Maintenance Intelligence</p>
+          </div>
+          <div class="status-strip" id="statusStrip"></div>
+        </section>
+
+        <section class="command-layout module-view active" data-module="command-center">
+          <section class="panel command-panel">
+            <label for="equipmentSelect">Asset</label>
+            <select id="equipmentSelect"></select>
+
+            <section class="copilot-console primary-copilot" aria-label="Industrial Maintenance Copilot">
+              <div class="panel-heading compact-heading">
+                <div>
+                  <h3>Industrial Maintenance Copilot</h3>
+                  <p>Ask asset-specific questions, review evidence, or generate maintenance decisions.</p>
+                </div>
+                <button class="small-button" id="chatButton" type="button">Send</button>
+              </div>
+              <div class="copilot-status" id="copilotStatus">
+                <div>
+                  <strong>Maintenance Wizard Intelligence Engine</strong>
+                  <span class="connectivity-badge online">Backend Online</span>
+                </div>
+                <strong class="source-title">Knowledge Sources Connected</strong>
+                <div class="source-checks">
+                  <span>Manuals OK</span>
+                  <span>SOPs OK</span>
+                  <span>Historical Failures OK</span>
+                  <span>Sensor Data OK</span>
+                  <span>Work Orders OK</span>
+                </div>
+              </div>
+              <div class="active-asset-chip" id="activeAssetChip"></div>
+              <div class="copilot-prompts" id="copilotPrompts"></div>
+              <div class="chat-window" id="chatWindow"></div>
+              <div class="voice-row">
+                <button class="small-button" id="voiceListenButton" type="button">Start Voice</button>
+                <button class="small-button" id="voiceSpeakButton" type="button">Speak Last Response</button>
+                <span id="voiceStatus">Voice assistant ready</span>
+              </div>
+              <textarea id="chatInput" rows="3" placeholder="Ask the maintenance copilot about this asset"></textarea>
+            </section>
+
+            <label for="queryInput">Investigation Brief</label>
+            <textarea id="queryInput" rows="4"></textarea>
+            <div class="button-row">
+              <button class="primary-button" id="analyzeButton" type="button">Run Investigation</button>
+              <button class="icon-button" id="clearButton" type="button" title="Clear query" aria-label="Clear query">x</button>
+            </div>
+          </section>
+
+          <section class="summary-grid compact-summary">
+            <article class="metric-tile">
+              <span>Selected Asset</span>
+              <strong id="assetName">-</strong>
+              <small id="assetAlert">-</small>
+            </article>
+            <article class="metric-tile">
+              <span>Risk Level</span>
+              <strong id="riskLevel">-</strong>
+              <small id="riskScore">Awaiting investigation</small>
+            </article>
+            <article class="metric-tile">
+              <span>Estimated RUL</span>
+              <strong id="rulHours">-</strong>
+              <small id="healthIndex">-</small>
+            </article>
+          </section>
+        </section>
+
+        <section class="panel executive-decision module-view active" data-module="command-center">
+          <div class="panel-heading">
+            <h3>Executive Decision Summary</h3>
+            <span class="pill" id="llmProvider">Maintenance Wizard Intelligence Engine</span>
+          </div>
+          <div id="executiveDecisionSummary"></div>
+          <p id="executiveAiSummary">Run an investigation to generate an operational maintenance summary for the selected asset.</p>
+        </section>
+
+        <section class="core-grid module-view active" data-module="command-center">
+          <section class="panel">
+            <div class="panel-heading">
+              <h3>Executive KPIs</h3>
+              <button class="small-button" id="refreshIntelButton" type="button">Refresh</button>
+            </div>
+            <div class="kpi-grid" id="executiveSummary"></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-heading">
+              <h3>Digital Twin Health</h3>
+              <span class="pill" id="twinStage">Pending</span>
+            </div>
+            <div class="twin-health" id="digitalTwin"></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-heading">
+              <h3>Business Impact Analysis</h3>
+              <span class="pill" id="aiConfidencePill">AI Confidence</span>
+            </div>
+            <div class="enterprise-kpis" id="costImpact"></div>
+          </section>
+        </section>
+
+        <section class="panel module-view active" data-module="command-center">
+          <div class="panel-heading">
+            <h3>Plant Command Center</h3>
+            <span class="pill">Live Operations Overview</span>
+          </div>
+          <div class="command-kpi-grid" id="plantCommandKpis"></div>
+        </section>
+
+        <section class="operations-grid module-view active" data-module="command-center">
+          <section class="panel">
+            <div class="panel-heading">
+              <h3>Plant Health Overview</h3>
+              <span class="pill" id="plantHealthPill">Health</span>
+            </div>
+            <div class="plant-health-widget" id="plantHealthOverview"></div>
+          </section>
+          <section class="panel">
+            <div class="panel-heading">
+              <h3>Sector Heatmap</h3>
+              <button class="small-button" id="clearSectorFilterButton" type="button">All Assets</button>
+            </div>
+            <div class="sector-heatmap" id="sectorHeatmap"></div>
+          </section>
+        </section>
+
+        <section class="operations-grid module-view active" data-module="command-center">
+          <section class="panel">
+            <div class="panel-heading">
+              <h3>Critical Asset Attention List</h3>
+              <span class="pill">Top 10</span>
+            </div>
+            <div class="critical-asset-list" id="criticalAssetList"></div>
+          </section>
+          <section class="panel">
+            <div class="panel-heading">
+              <h3>Recent Maintenance Logs</h3>
+              <span class="pill">Live Feed</span>
+            </div>
+            <div class="maintenance-feed" id="maintenanceFeed"></div>
+          </section>
+        </section>
+
+        <section class="panel module-view active" data-module="command-center">
+          <div class="panel-heading">
+            <h3>Predictive Maintenance Timeline</h3>
+            <span class="pill">Today / 7 / 30 / 90 Days</span>
+          </div>
+          <div class="maintenance-timeline" id="predictiveTimeline"></div>
+        </section>
+
+        <section class="panel module-view active" data-module="command-center">
+          <div class="panel-heading">
+            <h3>Live AI Pipeline Visibility</h3>
+            <span class="pill" id="pipelineTotal">Awaiting Run</span>
+          </div>
+          <div class="pipeline-grid" id="aiPipeline"></div>
+        </section>
+
+        <section class="panel module-view active" data-module="command-center">
+          <div class="panel-heading">
+            <h3>Real-Time Sensor Streaming</h3>
+            <span class="pill" id="streamStatus">Updating Every 4 Sec</span>
+          </div>
+          <div class="live-telemetry-grid" id="liveTelemetry"></div>
+          <div class="alert-list compact-alerts" id="streamAlerts"></div>
+        </section>
+
+        <section class="panel module-view" data-module="asset-intelligence">
+          <div class="panel-heading">
+            <h3>3D Plant Digital Twin</h3>
+            <span class="pill">Operations Center View</span>
+          </div>
+          <div class="plant-twin-layout">
+            <div class="plant-twin-scene" id="plantDigitalTwin"></div>
+            <aside class="plant-asset-panel" id="twinAssetPanel"></aside>
+          </div>
+        </section>
+
+        <section class="operations-grid module-view" data-module="asset-intelligence">
+          <section class="panel">
+            <div class="panel-heading">
+              <h3>Predictive Analytics</h3>
+              <span class="pill" id="predictionConfidence">Forecast</span>
+            </div>
+            <div class="prediction-grid" id="predictiveAnalytics"></div>
+          </section>
+          <section class="panel">
+            <div class="panel-heading">
+              <h3>Equipment Dependency Graph</h3>
+              <span class="pill">Cascading Risk</span>
+            </div>
+            <div class="dependency-graph" id="dependencyGraph"></div>
+          </section>
+        </section>
+
+        <section class="operations-grid module-view" data-module="asset-intelligence">
+          <section class="panel">
+            <div class="panel-heading">
+              <h3>Selected Asset Profile</h3>
+              <span class="pill">Digital Twin Record</span>
+            </div>
+            <div class="asset-profile-grid" id="selectedAssetProfile"></div>
+          </section>
+          <section class="panel">
+            <div class="panel-heading">
+              <h3>Failure Probability Engine</h3>
+              <span class="pill" id="failureProbabilityPill">Probability</span>
+            </div>
+            <div class="failure-probability-widget" id="failureProbabilityWidget"></div>
+          </section>
+        </section>
+
+        <section class="operations-grid module-view" data-module="asset-intelligence">
+          <section class="panel">
+            <div class="panel-heading">
+              <h3>Maintenance Calendar</h3>
+              <span class="pill">Asset Schedule</span>
+            </div>
+            <div class="maintenance-calendar" id="maintenanceCalendar"></div>
+          </section>
+          <section class="panel">
+            <div class="panel-heading">
+              <h3>Spare Part Recommendation Engine</h3>
+              <span class="pill">Inventory Risk</span>
+            </div>
+            <div class="spare-recommendations" id="spareRecommendations"></div>
+          </section>
+        </section>
+
+        <section class="operations-grid module-view" data-module="asset-intelligence">
+          <section class="panel">
+            <div class="panel-heading">
+              <h3>Failure Timeline</h3>
+              <span class="pill">Degradation Path</span>
+            </div>
+            <div class="failure-stage-timeline" id="failureStageTimeline"></div>
+          </section>
+          <section class="panel">
+            <div class="panel-heading">
+              <h3>Asset Relationship View</h3>
+              <span class="pill">Twin Hierarchy</span>
+            </div>
+            <div class="asset-relationship-view" id="assetRelationshipView"></div>
+          </section>
+        </section>
+
+        <section class="operations-grid module-view" data-module="asset-intelligence">
+          <section class="panel">
+            <div class="panel-heading">
+              <h3>Investigation Timeline</h3>
+              <span class="pill">Completed Workflow</span>
+            </div>
+            <div class="investigation-timeline" id="investigationTimeline"></div>
+          </section>
+
+          <section class="panel">
+            <details open>
+              <summary>Evidence Used</summary>
+              <div class="reasoning-trace" id="reasoningTrace"></div>
+              <div class="trace-list" id="traceabilityList"></div>
+            </details>
+          </section>
+        </section>
+
+        <section class="operations-grid module-view" data-module="asset-intelligence">
+          <section class="panel">
+            <div class="panel-heading">
+              <h3>Diagnosis</h3>
+              <span class="pill" id="urgencyPill">Pending</span>
+            </div>
+            <div id="diagnosisContent" class="empty-state">Run an investigation to generate diagnosis, risk, and maintenance actions.</div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-heading">
+              <h3>Recommended Actions</h3>
+            </div>
+            <ol class="action-list" id="recommendationsList"></ol>
+          </section>
+        </section>
+
+        <section class="work-order-section panel module-view" data-module="work-orders">
+          <div class="panel-heading">
+            <h3>Enterprise Work Order</h3>
+            <div class="work-order-actions">
+              <select id="workOrderStatus" aria-label="Work order status">
+                <option value="Open">Open</option>
+                <option value="Assigned">Assigned</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+                <option value="Closed">Closed</option>
+              </select>
+              <button class="small-button" id="workOrderButton" type="button">Generate</button>
+              <button class="small-button" id="workOrderSaveButton" type="button">Save</button>
+              <button class="small-button" id="workOrderJsonButton" type="button">Export JSON</button>
+              <button class="small-button" id="workOrderPdfButton" type="button">Download PDF</button>
+            </div>
+          </div>
+          <div class="work-order" id="workOrderView"></div>
+        </section>
+
+        <section class="operations-grid module-view" data-module="incident-replay">
+          <section class="panel">
+            <div class="panel-heading">
+              <h3>Plant Incident Replay</h3>
+              <span class="pill">Historical Learning</span>
+            </div>
+            <div class="incident-replay" id="incidentReplay"></div>
+          </section>
+        </section>
+
+        <section class="operations-grid module-view" data-module="knowledge-hub">
+          <section class="module-hero knowledge-hero">
+            <div>
+              <h2>Knowledge Center</h2>
+              <p>Dynamic enterprise knowledge ingestion, indexing, and vector retrieval engine.</p>
+            </div>
+            <span class="pill low">Semantic RAG Active</span>
+          </section>
+          <section class="knowledge-kpis" id="knowledgeStats"></section>
+          <section class="panel">
+            <div class="panel-heading">
+              <h3>Knowledge Center</h3>
+              <span class="pill">Indexed Plant Knowledge</span>
+            </div>
+            <div class="knowledge-center" id="knowledgeCenter"></div>
+          </section>
+          <section class="panel">
+            <div class="panel-heading">
+              <h3>Runtime Event Ingestion</h3>
+              <button class="small-button" id="ingestButton" type="button">Ingest</button>
+            </div>
+            <div class="ingest-grid">
+              <label>
+                Event Type
+                <select id="ingestType">
+                  <option value="equipment_delay_log">Equipment delay log</option>
+                  <option value="fault_message">Fault/error message</option>
+                  <option value="failure_analysis_report">Failure analysis report</option>
+                  <option value="incident_record">Incident record</option>
+                  <option value="sensor_summary">Sensor data summary</option>
+                  <option value="anomaly_alert">Abnormality/anomaly alert</option>
+                  <option value="process_indicator">Process condition indicator</option>
+                  <option value="manual_or_sop">Manual/SOP note</option>
+                  <option value="spare_update">Spare availability update</option>
+                </select>
+              </label>
+              <label>
+                Event Detail
+                <textarea id="ingestContent" rows="4" placeholder="Paste a delay log, fault message, sensor summary, repair note, or spare update"></textarea>
+              </label>
+            </div>
+            <div class="trace-list" id="ingestedInputs"></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-heading">
+              <h3>Knowledge Search</h3>
+              <button class="small-button" id="knowledgeButton" type="button">Search</button>
+            </div>
+            <div class="knowledge-row">
+              <input id="knowledgeInput" type="text" placeholder="Search manuals, SOPs, work orders, sensor events, and historical failures" />
+            </div>
+            <div class="trace-list" id="knowledgeResults"></div>
+            <div class="trace-list" id="sensorEventRepository"></div>
+          </section>
+        </section>
+
+        <section class="operations-grid module-view" data-module="inventory-spares">
+          <section class="module-hero inventory-hero">
+            <div>
+              <h2>Industrial Spares & Risk Optimizer</h2>
+              <p>AI-driven logistics monitoring, out-of-stock risk valuation, and instant procurement dispatch.</p>
+            </div>
+            <span class="pill critical">Critical Spares Watch</span>
+          </section>
+
+          <section class="inventory-kpis" id="inventoryKpis"></section>
+
+          <section class="inventory-risk-alert" id="inventoryRiskAlert"></section>
+
+          <section class="inventory-toolbar panel">
+            <input id="inventorySearch" type="search" placeholder="Search spare parts by name, part number, asset, or equipment ID..." />
+            <div class="inventory-filter-row">
+              <label>
+                Filter Stock
+                <select id="inventoryStockFilter">
+                  <option value="all">All</option>
+                  <option value="out">Out of Stock</option>
+                  <option value="low">Low Stock</option>
+                  <option value="in">In Stock</option>
+                </select>
+              </label>
+              <label>
+                Asset Type
+                <select id="inventoryTypeFilter">
+                  <option value="all">All Asset Types</option>
+                </select>
+              </label>
+              <label>
+                Sort By
+                <select id="inventorySort">
+                  <option value="default">Default</option>
+                  <option value="risk">Highest Risk</option>
+                  <option value="lead">Longest Lead Time</option>
+                  <option value="stock">Lowest Stock</option>
+                  <option value="value">Highest Value</option>
+                </select>
+              </label>
+            </div>
+          </section>
+
+          <section class="panel inventory-alert-panel">
+            <div class="panel-heading">
+              <h3>Plant Alerts</h3>
+            </div>
+            <div class="alert-list" id="alertList"></div>
+          </section>
+
+          <section class="panel inventory-catalog-panel">
+            <div class="panel-heading">
+              <h3>Spare Parts Catalog</h3>
+              <span class="pill">Live Stores View</span>
+            </div>
+            <div class="spares-list" id="sparesList"></div>
+          </section>
+        </section>
+
+        <section class="panel module-view" data-module="maintenance-planning">
+          <div class="panel-heading">
+            <h3>Shift Handover Generator</h3>
+            <button class="small-button" id="handoverPdfButton" type="button">Export PDF</button>
+          </div>
+          <div id="shiftHandover"></div>
+        </section>
+
+        <section class="panel module-view" data-module="inventory-spares">
+          <div class="panel-heading">
+            <h3>Procurement Request Generator</h3>
+            <button class="small-button" id="procurementButton" type="button">Generate Procurement Request</button>
+          </div>
+          <div class="procurement-list" id="procurementAssistant"></div>
+        </section>
+
+        <section class="panel module-view" data-module="asset-intelligence">
+          <div class="panel-heading">
+            <h3>Reliability Assessment</h3>
+            <button class="small-button" id="reliabilityButton" type="button">Generate Reliability Assessment</button>
+          </div>
+          <div class="enterprise-kpis" id="reliabilityAssessment"></div>
+        </section>
+
+        <section class="panel module-view" data-module="reports">
+          <div class="panel-heading">
+            <h3>Executive Report Generator</h3>
+            <div class="work-order-actions">
+              <button class="small-button" id="executiveReportButton" type="button">Download Executive Report</button>
+              <button class="small-button" id="executiveReportPdfButton" type="button">Export PDF</button>
+            </div>
+          </div>
+          <div class="report-preview" id="executiveReportPreview"></div>
+        </section>
+
+        <section class="panel module-view" data-module="reports">
+          <div class="panel-heading">
+            <h3>Enterprise Reporting</h3>
+            <span class="pill">PDF / Excel / JSON</span>
+          </div>
+          <div class="report-controls">
+            <select id="reportTypeSelect"></select>
+            <button class="small-button" id="reportPdfButton" type="button">Export PDF</button>
+            <button class="small-button" id="reportExcelButton" type="button">Export Excel</button>
+            <button class="small-button" id="reportJsonButton" type="button">Export JSON</button>
+          </div>
+          <div class="report-preview" id="enterpriseReportPreview"></div>
+        </section>
+
+        <section class="panel module-view" data-module="executive-dashboard">
+          <div class="panel-heading">
+            <h3>Executive Dashboard</h3>
+            <span class="pill">Plant Leadership View</span>
+          </div>
+          <div class="kpi-grid executive-command-kpis" id="operationsCenterKpis"></div>
+          <div id="executiveDashboardView"></div>
+        </section>
+
+        <section class="panel module-view" data-module="settings">
+          <div class="panel-heading">
+            <h3>Settings</h3>
+            <span class="pill">Enterprise Mode</span>
+          </div>
+          <div class="settings-list">
+            <div class="knowledge-card"><strong>Decision Engine</strong><p>Maintenance Wizard Intelligence Engine</p></div>
+            <div class="knowledge-card"><strong>Data Mode</strong><p>Local deterministic operation with optional secure API configuration.</p></div>
+            <div class="knowledge-card"><strong>AI Provider</strong><p id="providerStatus">AI Provider: Groq Online</p></div>
+          </div>
+          <div class="model-diagnostics" id="modelDiagnostics"></div>
+          <div class="kpi-grid" id="performanceHealth"></div>
+        </section>
+
+        <section class="panel module-view" data-module="maintenance-planning">
+          <div class="panel-heading">
+            <h3>Maintenance Feedback</h3>
+          </div>
+          <textarea id="feedbackInput" rows="4" placeholder="Confirmed root cause, action outcome, or reliability engineer correction"></textarea>
+          <button class="secondary-button full-width" id="feedbackButton" type="button">Save Feedback</button>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="/static/digital_twin.js?v=inventory-knowledge-20260612"></script>
+    <script src="/static/app.js?v=inventory-knowledge-20260612"></script>
+  </body>
+</html>
+

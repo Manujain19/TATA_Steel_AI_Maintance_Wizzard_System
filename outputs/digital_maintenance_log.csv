@@ -1,0 +1,125 @@
+timestamp,equipment_id,alert,risk_level,urgency,probable_fault,first_action
+2026-06-06T09:11:19.255587+00:00,HRM-ROLL-01,VIBRATION_HIGH,critical,immediate,VIBRATION_HIGH,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T09:11:19.277588+00:00,HRM-COIL-03,MANDREL_EXPANSION_FAIL,critical,immediate,MANDREL_EXPANSION_FAIL,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T09:11:19.290589+00:00,HRM-FURN-02,HYD_PRESS_LOW,high,immediate,HYD_PRESS_LOW,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T09:12:12.560711+00:00,HRM-ROLL-01,VIBRATION_HIGH,critical,immediate,VIBRATION_HIGH,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T09:12:12.576711+00:00,HRM-COIL-03,MANDREL_EXPANSION_FAIL,critical,immediate,MANDREL_EXPANSION_FAIL,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T09:12:12.590716+00:00,HRM-FURN-02,HYD_PRESS_LOW,high,immediate,HYD_PRESS_LOW,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T09:12:58.091555+00:00,HRM-COIL-03,MANDREL_EXPANSION_FAIL,critical,immediate,MANDREL_EXPANSION_FAIL,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T09:13:24.904208+00:00,HRM-COIL-03,MANDREL_EXPANSION_FAIL,critical,immediate,MANDREL_EXPANSION_FAIL,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T09:20:18.449434+00:00,HRM-ROLL-01,VIBRATION_HIGH,critical,immediate,VIBRATION_HIGH,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T09:20:18.473436+00:00,HRM-COIL-03,MANDREL_EXPANSION_FAIL,critical,immediate,MANDREL_EXPANSION_FAIL,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T09:20:18.507459+00:00,HRM-FURN-02,HYD_PRESS_LOW,high,immediate,HYD_PRESS_LOW,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T09:22:19.681448+00:00,HRM-ROLL-01,VIBRATION_HIGH,critical,immediate,VIBRATION_HIGH,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T09:22:19.692429+00:00,HRM-COIL-03,MANDREL_EXPANSION_FAIL,critical,immediate,MANDREL_EXPANSION_FAIL,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T09:22:19.704538+00:00,HRM-FURN-02,HYD_PRESS_LOW,high,immediate,HYD_PRESS_LOW,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T09:41:12.215019+00:00,HRM-COIL-03,MANDREL_EXPANSION_FAIL,critical,immediate,MANDREL_EXPANSION_FAIL,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T09:45:47.565709+00:00,HRM-ROLL-01,VIBRATION_HIGH,critical,immediate,VIBRATION_HIGH,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T09:45:55.975233+00:00,HRM-ROLL-01,VIBRATION_HIGH,critical,immediate,VIBRATION_HIGH,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T09:45:55.993330+00:00,HRM-COIL-03,MANDREL_EXPANSION_FAIL,critical,immediate,MANDREL_EXPANSION_FAIL,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T09:45:56.013992+00:00,HRM-FURN-02,HYD_PRESS_LOW,high,immediate,HYD_PRESS_LOW,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T09:46:21.757573+00:00,HRM-ROLL-01,VIBRATION_HIGH,critical,immediate,VIBRATION_HIGH,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T09:46:21.772189+00:00,HRM-COIL-03,MANDREL_EXPANSION_FAIL,critical,immediate,MANDREL_EXPANSION_FAIL,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T09:46:21.795199+00:00,HRM-FURN-02,HYD_PRESS_LOW,high,immediate,HYD_PRESS_LOW,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T09:46:24.509022+00:00,HRM-ROLL-01,VIBRATION_HIGH,critical,immediate,VIBRATION_HIGH,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T09:59:41.166819+00:00,HRM-ROLL-01,VIBRATION_HIGH,critical,immediate,VIBRATION_HIGH,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T09:59:41.185379+00:00,HRM-COIL-03,MANDREL_EXPANSION_FAIL,critical,immediate,MANDREL_EXPANSION_FAIL,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T09:59:41.212375+00:00,HRM-FURN-02,HYD_PRESS_LOW,high,immediate,HYD_PRESS_LOW,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T09:59:43.981207+00:00,HRM-ROLL-01,VIBRATION_HIGH,critical,immediate,VIBRATION_HIGH,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T10:00:06.336766+00:00,HRM-FURN-02,HYD_PRESS_LOW,high,immediate,HYD_PRESS_LOW,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T10:00:32.041576+00:00,HRM-ROLL-01,VIBRATION_HIGH,critical,immediate,VIBRATION_HIGH,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T10:00:32.058585+00:00,HRM-COIL-03,MANDREL_EXPANSION_FAIL,critical,immediate,MANDREL_EXPANSION_FAIL,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T10:00:32.074101+00:00,HRM-FURN-02,HYD_PRESS_LOW,high,immediate,HYD_PRESS_LOW,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T10:00:36.493779+00:00,HRM-COIL-03,MANDREL_EXPANSION_FAIL,critical,immediate,MANDREL_EXPANSION_FAIL,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T10:00:41.907399+00:00,HRM-COIL-03,MANDREL_EXPANSION_FAIL,critical,immediate,MANDREL_EXPANSION_FAIL,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T10:00:42.107126+00:00,HRM-COIL-03,MANDREL_EXPANSION_FAIL,critical,immediate,MANDREL_EXPANSION_FAIL,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T10:00:46.208350+00:00,HRM-COIL-03,MANDREL_EXPANSION_FAIL,critical,immediate,MANDREL_EXPANSION_FAIL,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T10:15:00.415783+00:00,HRM-ROLL-01,VIBRATION_HIGH,critical,immediate,VIBRATION_HIGH,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T10:15:42.905512+00:00,HRM-ROLL-01,VIBRATION_HIGH,critical,immediate,VIBRATION_HIGH,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T10:15:42.927464+00:00,HRM-COIL-03,MANDREL_EXPANSION_FAIL,critical,immediate,MANDREL_EXPANSION_FAIL,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T10:15:42.949457+00:00,HRM-FURN-02,HYD_PRESS_LOW,high,immediate,HYD_PRESS_LOW,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T10:15:47.376450+00:00,HRM-FURN-02,HYD_PRESS_LOW,high,immediate,HYD_PRESS_LOW,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T10:39:58.663545+00:00,HRM-FURN-02,HYD_PRESS_LOW,high,immediate,HYD_PRESS_LOW,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T10:40:03.448576+00:00,HRM-COIL-03,MANDREL_EXPANSION_FAIL,critical,immediate,MANDREL_EXPANSION_FAIL,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T10:40:08.827264+00:00,HRM-ROLL-01,VIBRATION_HIGH,critical,immediate,VIBRATION_HIGH,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T10:40:14.432352+00:00,HRM-COIL-03,MANDREL_EXPANSION_FAIL,critical,immediate,MANDREL_EXPANSION_FAIL,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T10:41:00.379582+00:00,HRM-FURN-02,HYD_PRESS_LOW,high,immediate,HYD_PRESS_LOW,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T10:41:49.835622+00:00,HRM-COIL-03,MANDREL_EXPANSION_FAIL,critical,immediate,MANDREL_EXPANSION_FAIL,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T10:44:01.631358+00:00,HRM-COIL-03,MANDREL_EXPANSION_FAIL,critical,immediate,MANDREL_EXPANSION_FAIL,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T10:44:06.121497+00:00,HRM-FURN-02,HYD_PRESS_LOW,high,immediate,HYD_PRESS_LOW,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T10:44:09.729738+00:00,HRM-COIL-03,MANDREL_EXPANSION_FAIL,critical,immediate,MANDREL_EXPANSION_FAIL,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T10:44:53.159353+00:00,HRM-COIL-03,MANDREL_EXPANSION_FAIL,critical,immediate,MANDREL_EXPANSION_FAIL,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T10:45:11.677043+00:00,HRM-FURN-02,HYD_PRESS_LOW,high,immediate,HYD_PRESS_LOW,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T10:45:24.037234+00:00,HRM-ROLL-01,VIBRATION_HIGH,critical,immediate,VIBRATION_HIGH,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T11:03:06.340954+00:00,HRM-COIL-03,MANDREL_EXPANSION_FAIL,critical,immediate,MANDREL_EXPANSION_FAIL,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T11:04:22.562751+00:00,HRM-FURN-02,HYD_PRESS_LOW,high,immediate,HYD_PRESS_LOW,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T19:03:06.129659+00:00,HRM-ROLL-01,VIBRATION_HIGH,critical,immediate,VIBRATION_HIGH,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T19:07:35.306130+00:00,HRM-ROLL-01,VIBRATION_HIGH,critical,immediate,VIBRATION_HIGH,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T19:07:35.359043+00:00,HRM-COIL-03,MANDREL_EXPANSION_FAIL,critical,immediate,MANDREL_EXPANSION_FAIL,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-06T19:07:35.439734+00:00,HRM-FURN-02,HYD_PRESS_LOW,high,immediate,HYD_PRESS_LOW,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-07T11:54:29.692515+00:00,HRM-ROLL-01,VIBRATION_HIGH,critical,immediate,VIBRATION_HIGH,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-07T11:55:32.760418+00:00,HRM-FURN-02,HYD_PRESS_LOW,high,immediate,HYD_PRESS_LOW,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-07T12:19:33.513727+00:00,HRM-ROLL-01,VIBRATION_HIGH,critical,immediate,VIBRATION_HIGH,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-07T12:19:43.997305+00:00,HRM-FURN-02,HYD_PRESS_LOW,high,immediate,HYD_PRESS_LOW,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-07T12:45:17.775840+00:00,HRM-ROLL-01,VIBRATION_HIGH,critical,immediate,VIBRATION_HIGH,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-07T12:49:36.048909+00:00,HRM-ROLL-01,VIBRATION_HIGH,critical,immediate,VIBRATION_HIGH,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-07T13:06:06.826652+00:00,HRM-COIL-03,MANDREL_EXPANSION_FAIL,critical,immediate,MANDREL_EXPANSION_FAIL,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-07T13:38:21.337234+00:00,HRM-ROLL-01,VIBRATION_HIGH,critical,immediate,VIBRATION_HIGH,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-07T13:40:44.167505+00:00,HRM-FURN-02,HYD_PRESS_LOW,high,immediate,HYD_PRESS_LOW,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-07T14:46:58.685318+00:00,TSA-RM-HPP-003,VIBRATION_HIGH,critical,immediate,VIBRATION_HIGH,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-07T14:53:53.292739+00:00,TSA-CCM-ROL-009,CRITICAL_DEGRADATION,critical,immediate,CRITICAL_DEGRADATION,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-07T15:00:23.695182+00:00,TSA-SIN-CDR-012,NORMAL_WATCH,medium,planned,NORMAL_WATCH,"Use prior case FH-0081 as reference: Inspect bearing, restore lubrication, replace seal kit."
+2026-06-07T15:00:34.174844+00:00,TSA-CCM-ROL-009,CRITICAL_DEGRADATION,critical,immediate,CRITICAL_DEGRADATION,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-07T15:00:45.746690+00:00,TSA-UTL-GCP-011,EARLY_WARNING,critical,immediate,EARLY_WARNING,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-07T15:00:58.791461+00:00,TSA-RMH-CNV-014,NORMAL_WATCH,medium,planned,NORMAL_WATCH,"Confirm hydraulic pressure locally, inspect valve leakage, and prepare seal kit replacement."
+2026-06-07T15:01:11.725202+00:00,TSA-BF-CPM-005,EARLY_WARNING,medium,planned,EARLY_WARNING,"Confirm hydraulic pressure locally, inspect valve leakage, and prepare seal kit replacement."
+2026-06-07T15:01:24.681744+00:00,TSA-RM-MTR-001,EARLY_WARNING,high,immediate,EARLY_WARNING,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-07T15:02:41.319187+00:00,TSA-RM-GBX-002,OIL_QUALITY_LOW,high,immediate,OIL_QUALITY_LOW,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-07T15:20:25.059140+00:00,HRM-ROLL-01,VIBRATION_HIGH,critical,immediate,VIBRATION_HIGH,Move equipment to restricted operation and prepare a controlled stop window.
+2026-06-07T17:00:24.885659+00:00,TSA-RM-HPP-003,HYD_PRESS_LOW,critical,immediate,pressure leak,Move Hydraulic Power Pack to restricted operation and prepare a controlled stop window.
+2026-06-07T17:03:13.342824+00:00,TSA-RM-GBX-002,OIL_CONTAMINATION,critical,immediate,gear wear,Move Rolling Mill Gearbox to restricted operation and prepare a controlled stop window.
+2026-06-07T17:07:24.474303+00:00,TSA-RM-HPP-003,HYD_PRESS_LOW,critical,immediate,pressure leak,Move Hydraulic Power Pack to restricted operation and prepare a controlled stop window.
+2026-06-07T17:07:49.424972+00:00,TSA-RM-GBX-002,OIL_CONTAMINATION,critical,immediate,gear wear,Move Rolling Mill Gearbox to restricted operation and prepare a controlled stop window.
+2026-06-07T17:08:11.455021+00:00,TSA-RM-HPP-003,HYD_PRESS_LOW,critical,immediate,pressure leak,Move Hydraulic Power Pack to restricted operation and prepare a controlled stop window.
+2026-06-07T17:08:23.043122+00:00,TSA-RM-GBX-002,OIL_CONTAMINATION,critical,immediate,gear wear,Move Rolling Mill Gearbox to restricted operation and prepare a controlled stop window.
+2026-06-07T17:10:00.884543+00:00,TSA-RM-HPP-003,HYD_PRESS_LOW,critical,immediate,pressure leak,Move Hydraulic Power Pack to restricted operation and prepare a controlled stop window.
+2026-06-07T18:08:23.373354+00:00,TSA-RM-GBX-002,OIL_CONTAMINATION,critical,immediate,gear wear,Move Rolling Mill Gearbox to restricted operation and prepare a controlled stop window.
+2026-06-07T18:08:55.149796+00:00,TSA-RM-GBX-002,OIL_CONTAMINATION,critical,immediate,gear wear,Move Rolling Mill Gearbox to restricted operation and prepare a controlled stop window.
+2026-06-07T18:09:21.593638+00:00,TSA-RM-HPP-003,HYD_PRESS_LOW,critical,immediate,pressure leak,Move Hydraulic Power Pack to restricted operation and prepare a controlled stop window.
+2026-06-08T11:01:59.933204+00:00,TSA-RM-HPP-003,HYD_PRESS_LOW,critical,immediate,pressure leak,Move Hydraulic Power Pack to restricted operation and prepare a controlled stop window.
+2026-06-09T09:16:18.521511+00:00,TSA-RM-MTR-001,EARLY_WARNING,critical,immediate,winding insulation degradation,Move Rolling Mill Drive Motor to restricted operation and prepare a controlled stop window.
+2026-06-09T09:17:05.742847+00:00,TSA-RM-HPP-003,HYD_PRESS_LOW,critical,immediate,pressure leak,Move Hydraulic Power Pack to restricted operation and prepare a controlled stop window.
+2026-06-09T15:53:36.868207+00:00,TSA-RM-HPP-003,HYD_PRESS_LOW,critical,immediate,pressure leak,Move Hydraulic Power Pack to restricted operation and prepare a controlled stop window.
+2026-06-09T15:57:22.270836+00:00,TSA-RM-GBX-002,OIL_CONTAMINATION,critical,immediate,gear wear,Move Rolling Mill Gearbox to restricted operation and prepare a controlled stop window.
+2026-06-09T16:55:57.776896+00:00,TSA-CCM-ROL-009,VIBRATION_HIGH,critical,immediate,roller bearing seizure,Move Continuous Casting Roller to restricted operation and prepare a controlled stop window.
+2026-06-09T18:25:44.211610+00:00,TSA-RM-GBX-002,OIL_CONTAMINATION,critical,immediate,gear wear,Move Rolling Mill Gearbox to restricted operation and prepare a controlled stop window.
+2026-06-10T06:02:24.994437+00:00,TSA-RM-MTR-001,EARLY_WARNING,critical,immediate,winding insulation degradation,Move Rolling Mill Drive Motor to restricted operation and prepare a controlled stop window.
+2026-06-10T07:10:45.487894+00:00,TSA-SMS-APU-007,NORMAL_WATCH,low,planned,low argon flow,Investigate low argon flow caused by regulator drift; execute: Validate flow meter.
+2026-06-10T10:43:10.623079+00:00,TSA-RM-HPP-003,HYD_PRESS_LOW,critical,immediate,pressure leak,Move Hydraulic Power Pack to restricted operation and prepare a controlled stop window.
+2026-06-10T10:52:20.928804+00:00,TSA-BF-CPM-005,EARLY_WARNING,high,immediate,pump cavitation,Move Blast Furnace Cooling Pump to restricted operation and prepare a controlled stop window.
+2026-06-10T11:01:16.729881+00:00,TSA-CKE-EFN-010,VIBRATION_HIGH,medium,planned,fan imbalance,Investigate fan imbalance caused by dust buildup; execute: Clean fan rotor.
+2026-06-10T11:19:15.677657+00:00,TSA-RM-MTR-001,EARLY_WARNING,critical,immediate,winding insulation degradation,Move Rolling Mill Drive Motor to restricted operation and prepare a controlled stop window.
+2026-06-10T11:20:07.579184+00:00,TSA-RM-GBX-002,OIL_CONTAMINATION,critical,immediate,gear wear,Move Rolling Mill Gearbox to restricted operation and prepare a controlled stop window.
+2026-06-10T11:57:51.091895+00:00,TSA-RM-MTR-001,EARLY_WARNING,critical,immediate,winding insulation degradation,Move Rolling Mill Drive Motor to restricted operation and prepare a controlled stop window.
+2026-06-10T12:17:07.360974+00:00,TSA-RM-MTR-001,EARLY_WARNING,critical,immediate,winding insulation degradation,Move Rolling Mill Drive Motor to restricted operation and prepare a controlled stop window.
+2026-06-10T12:41:23.650076+00:00,TSA-RM-MTR-001,EARLY_WARNING,critical,immediate,winding insulation degradation,Move Rolling Mill Drive Motor to restricted operation and prepare a controlled stop window.
+2026-06-10T16:56:59.432789+00:00,TSA-RM-MTR-001,EARLY_WARNING,critical,immediate,winding insulation degradation,Move Rolling Mill Drive Motor to restricted operation and prepare a controlled stop window.
+2026-06-10T17:25:37.232732+00:00,TSA-RM-MTR-001,EARLY_WARNING,critical,immediate,winding insulation degradation,Move Rolling Mill Drive Motor to restricted operation and prepare a controlled stop window.
+2026-06-10T18:18:36.846189+00:00,TSA-RM-MTR-001,EARLY_WARNING,critical,immediate,winding insulation degradation,Move Rolling Mill Drive Motor to restricted operation and prepare a controlled stop window.
+2026-06-10T18:41:07.590810+00:00,TSA-RM-MTR-001,EARLY_WARNING,critical,immediate,winding insulation degradation,Move Rolling Mill Drive Motor to restricted operation and prepare a controlled stop window.
+2026-06-11T10:58:08.441371+00:00,TSA-RM-HPP-003,HYD_PRESS_LOW,critical,immediate,pressure leak,Move Hydraulic Power Pack to restricted operation and prepare a controlled stop window.
+2026-06-11T11:26:09.022739+00:00,TSA-RM-MTR-001,EARLY_WARNING,critical,immediate,winding insulation degradation,Move Rolling Mill Drive Motor to restricted operation and prepare a controlled stop window.
+2026-06-11T11:36:59.528603+00:00,TSA-RM-MTR-001,EARLY_WARNING,critical,immediate,winding insulation degradation,Move Rolling Mill Drive Motor to restricted operation and prepare a controlled stop window.
+2026-06-11T13:39:28.053628+00:00,TSA-RM-MTR-001,EARLY_WARNING,critical,immediate,winding insulation degradation,Move Rolling Mill Drive Motor to restricted operation and prepare a controlled stop window.
+2026-06-11T14:00:51.884486+00:00,TSA-RM-MTR-001,EARLY_WARNING,critical,immediate,winding insulation degradation,Move Rolling Mill Drive Motor to restricted operation and prepare a controlled stop window.
+2026-06-11T14:09:33.903577+00:00,TSA-RM-HPP-003,HYD_PRESS_LOW,critical,immediate,pressure leak,Move Hydraulic Power Pack to restricted operation and prepare a controlled stop window.
+2026-06-11T14:28:23.740408+00:00,TSA-RM-GBX-002,OIL_CONTAMINATION,critical,immediate,gear wear,Move Rolling Mill Gearbox to restricted operation and prepare a controlled stop window.
+2026-06-11T15:02:44.617791+00:00,TSA-RM-MTR-001,EARLY_WARNING,critical,immediate,winding insulation degradation,Move Rolling Mill Drive Motor to restricted operation and prepare a controlled stop window.
+2026-06-11T16:54:13.781335+00:00,TSA-BF-CPM-005,EARLY_WARNING,medium,planned,pump cavitation,Investigate pump cavitation caused by blocked suction strainer; execute: Check suction pressure.
+2026-06-11T17:01:30.159048+00:00,TSA-RM-MTR-001,EARLY_WARNING,high,immediate,winding insulation degradation,Move Rolling Mill Drive Motor to restricted operation and prepare a controlled stop window.
+2026-06-11T17:20:39.095613+00:00,TSA-RM-MTR-001,EARLY_WARNING,high,immediate,winding insulation degradation,Move Rolling Mill Drive Motor to restricted operation and prepare a controlled stop window.
+2026-06-11T17:26:11.427553+00:00,TSA-RM-GBX-002,OIL_CONTAMINATION,critical,immediate,gear wear,Move Rolling Mill Gearbox to restricted operation and prepare a controlled stop window.
+2026-06-11T18:21:30.181455+00:00,TSA-RM-MTR-001,EARLY_WARNING,high,immediate,winding insulation degradation,Move Rolling Mill Drive Motor to restricted operation and prepare a controlled stop window.
+2026-06-11T18:27:51.946676+00:00,TSA-RM-MTR-001,EARLY_WARNING,high,immediate,winding insulation degradation,Move Rolling Mill Drive Motor to restricted operation and prepare a controlled stop window.
+2026-06-12T10:16:24.912485+00:00,TSA-RM-MTR-001,EARLY_WARNING,high,immediate,winding insulation degradation,Move Rolling Mill Drive Motor to restricted operation and prepare a controlled stop window.
+2026-06-12T11:47:22.598351+00:00,TSA-RM-MTR-001,EARLY_WARNING,high,immediate,winding insulation degradation,Move Rolling Mill Drive Motor to restricted operation and prepare a controlled stop window.

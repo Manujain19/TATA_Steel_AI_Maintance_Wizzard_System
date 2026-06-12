@@ -1,0 +1,141 @@
+{
+  "generated_at": "2026-06-06T19:07:35.306130+00:00",
+  "query": "Finishing mill has high drive-side vibration and chatter marks after coil threading. What is the likely root cause and what should we do first?",
+  "agent_steps": [
+    "intake maintenance query and optional equipment id",
+    "retrieve relevant manuals, SOPs, and historical cases",
+    "evaluate condition-monitoring limits",
+    "estimate RUL from service age and condition penalty",
+    "score risk using condition, history severity, and spares constraints",
+    "generate prioritized maintenance and procurement actions"
+  ],
+  "equipment": {
+    "equipment_id": "HRM-ROLL-01",
+    "equipment_name": "Finishing Mill Work Roll",
+    "active_alert": "VIBRATION_HIGH",
+    "timestamp": "2026-06-06T13:55:00"
+  },
+  "diagnosis": {
+    "probable_fault": "VIBRATION_HIGH",
+    "probable_root_causes": [
+      "Bearing wear with low lubrication flow",
+      "Loose chock clamp after roll change"
+    ],
+    "condition_breaches": [
+      {
+        "metric": "temperature_c",
+        "value": 82.0,
+        "level": "warn",
+        "limit": 75.0
+      },
+      {
+        "metric": "vibration_mm_s",
+        "value": 8.1,
+        "level": "trip",
+        "limit": 7.1
+      },
+      {
+        "metric": "oil_pressure_bar",
+        "value": 2.1,
+        "level": "warn",
+        "limit": 2.8
+      },
+      {
+        "metric": "roll_gap_variation_mm",
+        "value": 0.42,
+        "level": "trip",
+        "limit": 0.4
+      }
+    ]
+  },
+  "prediction": {
+    "method": "service interval adjusted by current condition breaches",
+    "service_interval_hours": 1800,
+    "operating_hours_since_service": 1440,
+    "health_index": 0.0,
+    "estimated_remaining_useful_life_hours": 0,
+    "rul_label": "Immediate intervention",
+    "rul_explanation": "Current service age and active condition breaches have exhausted the safe operating window."
+  },
+  "risk": {
+    "score": 86.4,
+    "level": "critical",
+    "drivers": {
+      "condition_score": 68.0,
+      "historical_severity_score": 3,
+      "spares_penalty": 13.0
+    }
+  },
+  "priority": {
+    "urgency": "immediate",
+    "plant_bottleneck_priority": [
+      {
+        "equipment_id": "HRM-COIL-03",
+        "equipment_name": "Down Coiler Mandrel",
+        "risk_score": 87.4,
+        "risk_level": "critical",
+        "selected": false
+      },
+      {
+        "equipment_id": "HRM-ROLL-01",
+        "equipment_name": "Finishing Mill Work Roll",
+        "risk_score": 86.4,
+        "risk_level": "critical",
+        "selected": true
+      },
+      {
+        "equipment_id": "HRM-FURN-02",
+        "equipment_name": "Reheating Furnace Walking Beam",
+        "risk_score": 66.1,
+        "risk_level": "high",
+        "selected": false
+      }
+    ]
+  },
+  "recommendations": [
+    "Move equipment to restricted operation and prepare a controlled stop window.",
+    "Inspect bearing condition, coupling looseness, and lubrication flow before next campaign.",
+    "Verify oil pump delivery and clean lubrication filters immediately.",
+    "Check roll alignment, chock clamp torque, and recent roll-change setup.",
+    "Use prior case FH-001 as reference: Reduced speed, restored lube flow, replaced bearing in planned stop.",
+    "Procurement action: bearing seal kit has qty=0 and lead_time=16 days; escalate now.",
+    "Create digital log entry for HRM-ROLL-01 with alert VIBRATION_HIGH."
+  ],
+  "traceability": [
+    {
+      "source": "equipment_manuals",
+      "title": "HRM-ROLL-01 finishing mill work roll assembly",
+      "score": 14.0,
+      "detail": "Criticality: high Common symptoms: - High vibration near the drive-side bearing. - Roll gap variation during high-speed passes. - Surface chatter marks on finished strip. - Rising bearing temperature after coil threading. Likely causes: - Work roll bearing wear or lubrication starvation. - Mill stand misalignment after roll change. - Loose chock clamp or damaged bearing seal. - Process instability from speed misma..."
+    },
+    {
+      "source": "failure_history",
+      "title": "FH-001",
+      "score": 13.0,
+      "detail": "HRM-ROLL-01 Finishing Mill Work Roll Drive-side bearing: VIBRATION_HIGH. Symptoms: drive side vibration; bearing temperature rise; chatter marks. Root cause: Bearing wear with low lubrication flow. Action: Reduced speed, restored lube flow, replaced bearing in planned stop."
+    },
+    {
+      "source": "failure_history",
+      "title": "FH-002",
+      "score": 9.0,
+      "detail": "HRM-ROLL-01 Finishing Mill Work Roll Chock clamp: ROLL_GAP_UNSTABLE. Symptoms: roll gap variation; strip thickness deviation. Root cause: Loose chock clamp after roll change. Action: Retorqued clamp, checked alignment, monitored next 20 coils."
+    },
+    {
+      "source": "maintenance_sops",
+      "title": "Vibration alarm SOP",
+      "score": 6.0,
+      "detail": "1. Acknowledge the alarm and capture equipment ID, timestamp, coil ID, speed, vibration, temperature, and recent maintenance activity. 2. If vibration is above trip level or paired with abnormal temperature rise, reduce load and prepare controlled stop. 3. Inspect lubrication flow, bearing temperature, coupling condition, and mechanical looseness. 4. If vibration normalizes after load reduction, continue at restri..."
+    },
+    {
+      "source": "maintenance_sops",
+      "title": "Hydraulic pressure instability SOP",
+      "score": 4.0,
+      "detail": "1. Confirm sensor reading from local gauge and control system historian. 2. Check pump, accumulator pressure, valve leakage, and seal condition. 3. If pressure drop affects a critical motion, stop the motion sequence and isolate the hydraulic circuit. 4. Review spare availability for seal kit, servo valve, and hose assembly. 5. Record action taken and actual root cause in the digital maintenance log."
+    }
+  ],
+  "assumptions": [
+    "RUL is an engineering estimate for demonstration, not a certified prediction.",
+    "Thresholds are configurable plant rules and should be calibrated with historian data.",
+    "LLM or SLM integration can replace the deterministic reasoning backend while preserving traceability."
+  ]
+}

@@ -1,0 +1,5 @@
+incident_id,equipment_id,timestamp,incident_type,summary,containment_action,supervisor_note
+IR-001,HRM-ROLL-01,2026-06-05T18:15:00,quality_defect,Surface chatter found on two coils after high-vibration alarm,Restricted speed and isolated suspect stand,Monitor bearing temperature before next campaign
+IR-002,HRM-FURN-02,2026-06-04T21:10:00,production_delay,Slab transfer delayed by walking beam position mismatch,Manual inspection and position sensor recalibration,Check scale buildup during planned stop
+IR-003,HRM-COIL-03,2026-06-06T12:55:00,safety_risk,Tail-end slip observed during coiling sequence,Held production and checked expansion valve,Escalate mandrel segment spare shortage
+

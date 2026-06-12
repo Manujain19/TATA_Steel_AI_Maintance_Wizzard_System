@@ -1,0 +1,109 @@
+[
+  {
+    "viewport": {
+      "name": "desktop-1920",
+      "width": 1920,
+      "height": 1080
+    },
+    "canAnalyze": true,
+    "consoleErrors": [
+      "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED",
+      "Missing asset_intelligence {scope: analyzeResponse, response: Object}"
+    ],
+    "audit": {
+      "invalid": [],
+      "overflow": [
+        {
+          "tag": "STRONG",
+          "cls": "",
+          "text": "Controlled Shutdown Within 7 Days",
+          "sw": 189,
+          "cw": 133
+        }
+      ],
+      "visibleWarmup": false,
+      "execText": "Executive Decision Center - Selected Asset Rolling Mill Drive Motor HIGH Score 87.4 Health 74% RUL 56 days Move Rolling Mill Drive Motor to restricted operation and prepare a controlled stop window. Assets Monitored 25 -2% Connected asset master records Critical Assets 6 +8% Assets requiring immediate attention Selected Asset Exposure ₹225.1 L -4% Current selected-asset business exposure Recommended Actions 13 +1% Move Rolling Mill Drive Motor to restricted operation and prepare a controlled stop window. SELECTED ASSET DECISION Rolling Mill Drive Motor TSA-RM-MTR-001 / Restricted Operation / H",
+      "activeChip": "ACTIVE ASSET Rolling Mill Drive Motor TSA-RM-MTR-001 Risk HIGH Health 74% RUL 56 days Alert Restricted Operation Asset-Aware Mode Enabled",
+      "bodyWidth": 1920,
+      "viewport": 1920
+    }
+  },
+  {
+    "viewport": {
+      "name": "laptop-1366",
+      "width": 1366,
+      "height": 768
+    },
+    "canAnalyze": true,
+    "consoleErrors": [
+      "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED",
+      "Missing asset_intelligence {scope: analyzeResponse, response: Object}"
+    ],
+    "audit": {
+      "invalid": [],
+      "overflow": [
+        {
+          "tag": "DIV",
+          "cls": "active-asset-main",
+          "text": "ACTIVE ASSET Rolling Mill Drive Motor TSA-RM-MTR-001",
+          "sw": 82,
+          "cw": 15
+        },
+        {
+          "tag": "STRONG",
+          "cls": "",
+          "text": "Rolling Mill Drive Motor",
+          "sw": 82,
+          "cw": 15
+        },
+        {
+          "tag": "SMALL",
+          "cls": "",
+          "text": "TSA-RM-MTR-001",
+          "sw": 33,
+          "cw": 15
+        },
+        {
+          "tag": "EM",
+          "cls": "",
+          "text": "Asset-Aware Mode Enabled",
+          "sw": 181,
+          "cw": 20
+        },
+        {
+          "tag": "STRONG",
+          "cls": "",
+          "text": "Controlled Shutdown Within 7 Days",
+          "sw": 163,
+          "cw": 0
+        }
+      ],
+      "visibleWarmup": false,
+      "execText": "Executive Decision Center - Selected Asset Rolling Mill Drive Motor HIGH Score 87.4 Health 74% RUL 56 days Move Rolling Mill Drive Motor to restricted operation and prepare a controlled stop window. Assets Monitored 25 -2% Connected asset master records Critical Assets 6 +8% Assets requiring immediate attention Selected Asset Exposure ₹225.1 L -4% Current selected-asset business exposure Recommended Actions 13 +1% Move Rolling Mill Drive Motor to restricted operation and prepare a controlled stop window. SELECTED ASSET DECISION Rolling Mill Drive Motor TSA-RM-MTR-001 / Restricted Operation / H",
+      "activeChip": "ACTIVE ASSET Rolling Mill Drive Motor TSA-RM-MTR-001 Risk HIGH Health 74% RUL 56 days Alert Restricted Operation Asset-Aware Mode Enabled",
+      "bodyWidth": 1366,
+      "viewport": 1366
+    }
+  },
+  {
+    "viewport": {
+      "name": "tablet-900",
+      "width": 900,
+      "height": 900
+    },
+    "canAnalyze": true,
+    "consoleErrors": [
+      "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED",
+      "Missing asset_intelligence {scope: analyzeResponse, response: Object}"
+    ],
+    "audit": {
+      "invalid": [],
+      "overflow": [],
+      "visibleWarmup": false,
+      "execText": "Executive Decision Center - Selected Asset Rolling Mill Drive Motor HIGH Score 87.4 Health 74% RUL 56 days Move Rolling Mill Drive Motor to restricted operation and prepare a controlled stop window. Assets Monitored 25 -2% Connected asset master records Critical Assets 6 +8% Assets requiring immediate attention Selected Asset Exposure ₹225.1 L -4% Current selected-asset business exposure Recommended Actions 13 +1% Move Rolling Mill Drive Motor to restricted operation and prepare a controlled stop window. SELECTED ASSET DECISION Rolling Mill Drive Motor TSA-RM-MTR-001 / Restricted Operation / H",
+      "activeChip": "ACTIVE ASSET Rolling Mill Drive Motor TSA-RM-MTR-001 Risk HIGH Health 74% RUL 56 days Alert Restricted Operation Asset-Aware Mode Enabled",
+      "bodyWidth": 900,
+      "viewport": 900
+    }
+  }
+]

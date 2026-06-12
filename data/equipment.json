@@ -1,0 +1,827 @@
+[
+  {
+    "id": "TSA-RM-MTR-001",
+    "name": "Rolling Mill Drive Motor",
+    "area": "Rolling Mill",
+    "type": "Drive Motor",
+    "criticality": "critical",
+    "health_score": 74,
+    "risk_level": "high",
+    "rated_hours": 50000,
+    "running_hours": 48668,
+    "status": "Restricted Operation",
+    "last_maintenance": "2026-05-20",
+    "rul_hours": 1332,
+    "mtbf": 764,
+    "mttr": 4.6,
+    "failure_modes": [
+      "winding insulation degradation",
+      "rotor imbalance",
+      "overheating"
+    ],
+    "root_causes": [
+      "thermal overload",
+      "cooling fan fouling",
+      "rotor eccentricity"
+    ],
+    "recommended_actions": [
+      "Perform insulation resistance test",
+      "Thermography on stator body",
+      "Inspect rotor balance and cooling fan"
+    ],
+    "production_tph": 145,
+    "base_repair_cost_inr": 420000
+  },
+  {
+    "id": "TSA-RM-GBX-002",
+    "name": "Rolling Mill Gearbox",
+    "area": "Rolling Mill",
+    "type": "Gearbox",
+    "criticality": "critical",
+    "health_score": 68,
+    "risk_level": "high",
+    "rated_hours": 51800,
+    "running_hours": 50576,
+    "status": "Restricted Operation",
+    "last_maintenance": "2026-05-16",
+    "rul_hours": 1224,
+    "mtbf": 728,
+    "mttr": 5.0,
+    "failure_modes": [
+      "gear wear",
+      "oil contamination",
+      "bearing failure"
+    ],
+    "root_causes": [
+      "low oil quality",
+      "gear tooth pitting",
+      "bearing race fatigue"
+    ],
+    "recommended_actions": [
+      "Run oil debris analysis",
+      "Borescope gear teeth",
+      "Replace contaminated oil and filters"
+    ],
+    "production_tph": 155,
+    "base_repair_cost_inr": 680000
+  },
+  {
+    "id": "TSA-RM-HPP-003",
+    "name": "Hydraulic Power Pack",
+    "area": "Rolling Mill",
+    "type": "Hydraulic System",
+    "criticality": "critical",
+    "health_score": 59,
+    "risk_level": "critical",
+    "rated_hours": 53600,
+    "running_hours": 52618,
+    "status": "Immediate Intervention",
+    "last_maintenance": "2026-05-12",
+    "rul_hours": 982,
+    "mtbf": 674,
+    "mttr": 5.5,
+    "failure_modes": [
+      "pressure leak",
+      "seal failure",
+      "pump cavitation"
+    ],
+    "root_causes": [
+      "actuator seal leakage",
+      "suction restriction",
+      "servo valve internal leakage"
+    ],
+    "recommended_actions": [
+      "Pressure decay test",
+      "Inspect suction strainer",
+      "Replace leaking seal and validate servo valve"
+    ],
+    "production_tph": 132,
+    "base_repair_cost_inr": 360000
+  },
+  {
+    "id": "TSA-BF-BLR-004",
+    "name": "Blast Furnace Blower",
+    "area": "Blast Furnace",
+    "type": "Blower",
+    "criticality": "critical",
+    "health_score": 82,
+    "risk_level": "medium",
+    "rated_hours": 55400,
+    "running_hours": 53924,
+    "status": "Watchlist",
+    "last_maintenance": "2026-05-08",
+    "rul_hours": 1476,
+    "mtbf": 812,
+    "mttr": 4.2,
+    "failure_modes": [
+      "impeller imbalance",
+      "bearing temperature rise",
+      "surge instability"
+    ],
+    "root_causes": [
+      "dust deposition on impeller",
+      "bearing lubrication degradation",
+      "inlet guide vane drift"
+    ],
+    "recommended_actions": [
+      "Balance impeller",
+      "Inspect bearing lubrication",
+      "Validate inlet guide vane control"
+    ],
+    "production_tph": 118,
+    "base_repair_cost_inr": 520000
+  },
+  {
+    "id": "TSA-BF-CPM-005",
+    "name": "Blast Furnace Cooling Pump",
+    "area": "Blast Furnace",
+    "type": "Cooling Pump",
+    "criticality": "critical",
+    "health_score": 64,
+    "risk_level": "high",
+    "rated_hours": 57200,
+    "running_hours": 56048,
+    "status": "Restricted Operation",
+    "last_maintenance": "2026-05-04",
+    "rul_hours": 1152,
+    "mtbf": 704,
+    "mttr": 5.2,
+    "failure_modes": [
+      "pump cavitation",
+      "seal leakage",
+      "low flow"
+    ],
+    "root_causes": [
+      "blocked suction strainer",
+      "mechanical seal wear",
+      "impeller erosion"
+    ],
+    "recommended_actions": [
+      "Check suction pressure",
+      "Inspect mechanical seal",
+      "Verify cooling-water flow"
+    ],
+    "production_tph": 108,
+    "base_repair_cost_inr": 260000
+  },
+  {
+    "id": "TSA-BF-HBV-006",
+    "name": "Hot Blast Valve",
+    "area": "Blast Furnace",
+    "type": "Valve",
+    "criticality": "critical",
+    "health_score": 71,
+    "risk_level": "high",
+    "rated_hours": 59000,
+    "running_hours": 57722,
+    "status": "Restricted Operation",
+    "last_maintenance": "2026-04-30",
+    "rul_hours": 1278,
+    "mtbf": 746,
+    "mttr": 4.8,
+    "failure_modes": [
+      "valve sticking",
+      "actuator leakage",
+      "position drift"
+    ],
+    "root_causes": [
+      "scale buildup",
+      "actuator seal damage",
+      "positioner calibration drift"
+    ],
+    "recommended_actions": [
+      "Stroke-test valve",
+      "Inspect actuator leakage",
+      "Recalibrate positioner"
+    ],
+    "production_tph": 126,
+    "base_repair_cost_inr": 300000
+  },
+  {
+    "id": "TSA-SMS-APU-007",
+    "name": "Argon Purging Unit",
+    "area": "Steel Melting Shop",
+    "type": "Gas System",
+    "criticality": "high",
+    "health_score": 86,
+    "risk_level": "low",
+    "rated_hours": 60800,
+    "running_hours": 59252,
+    "status": "Available",
+    "last_maintenance": "2026-04-26",
+    "rul_hours": 1548,
+    "mtbf": 836,
+    "mttr": 4.0,
+    "failure_modes": [
+      "low argon flow",
+      "control valve drift",
+      "line restriction"
+    ],
+    "root_causes": [
+      "regulator drift",
+      "flow-meter fouling",
+      "line moisture ingress"
+    ],
+    "recommended_actions": [
+      "Validate flow meter",
+      "Check regulator setting",
+      "Inspect purge line restriction"
+    ],
+    "production_tph": 86,
+    "base_repair_cost_inr": 180000
+  },
+  {
+    "id": "TSA-SMS-LTC-008",
+    "name": "Ladle Transfer Car",
+    "area": "Steel Melting Shop",
+    "type": "Transfer Car",
+    "criticality": "critical",
+    "health_score": 77,
+    "risk_level": "medium",
+    "rated_hours": 62600,
+    "running_hours": 61214,
+    "status": "Watchlist",
+    "last_maintenance": "2026-04-22",
+    "rul_hours": 1386,
+    "mtbf": 782,
+    "mttr": 4.5,
+    "failure_modes": [
+      "drive chain wear",
+      "wheel bearing failure",
+      "position encoder fault"
+    ],
+    "root_causes": [
+      "rail misalignment",
+      "bearing fatigue",
+      "encoder contamination"
+    ],
+    "recommended_actions": [
+      "Inspect rails and wheels",
+      "Check encoder feedback",
+      "Verify traction current"
+    ],
+    "production_tph": 97,
+    "base_repair_cost_inr": 340000
+  },
+  {
+    "id": "TSA-CCM-ROL-009",
+    "name": "Continuous Casting Roller",
+    "area": "Steel Melting Shop",
+    "type": "Caster Roller",
+    "criticality": "critical",
+    "health_score": 55,
+    "risk_level": "critical",
+    "rated_hours": 64400,
+    "running_hours": 63490,
+    "status": "Immediate Intervention",
+    "last_maintenance": "2026-04-18",
+    "rul_hours": 910,
+    "mtbf": 650,
+    "mttr": 5.7,
+    "failure_modes": [
+      "roller bearing seizure",
+      "cooling blockage",
+      "surface scoring"
+    ],
+    "root_causes": [
+      "bearing water ingress",
+      "spray nozzle blockage",
+      "roll shell fatigue"
+    ],
+    "recommended_actions": [
+      "Inspect roller rotation",
+      "Check spray cooling",
+      "Replace damaged bearing assembly"
+    ],
+    "production_tph": 138,
+    "base_repair_cost_inr": 610000
+  },
+  {
+    "id": "TSA-CKE-EFN-010",
+    "name": "Coke Oven Exhaust Fan",
+    "area": "Coke Oven",
+    "type": "Exhaust Fan",
+    "criticality": "high",
+    "health_score": 73,
+    "risk_level": "medium",
+    "rated_hours": 66200,
+    "running_hours": 64886,
+    "status": "Watchlist",
+    "last_maintenance": "2026-04-14",
+    "rul_hours": 1314,
+    "mtbf": 758,
+    "mttr": 4.7,
+    "failure_modes": [
+      "fan imbalance",
+      "belt slip",
+      "bearing degradation"
+    ],
+    "root_causes": [
+      "dust buildup",
+      "pulley misalignment",
+      "lubrication starvation"
+    ],
+    "recommended_actions": [
+      "Clean fan rotor",
+      "Align belt drive",
+      "Inspect fan bearings"
+    ],
+    "production_tph": 92,
+    "base_repair_cost_inr": 240000
+  },
+  {
+    "id": "TSA-UTL-GCP-011",
+    "name": "Gas Compressor",
+    "area": "Utilities",
+    "type": "Compressor",
+    "criticality": "critical",
+    "health_score": 61,
+    "risk_level": "high",
+    "rated_hours": 68000,
+    "running_hours": 66902,
+    "status": "Restricted Operation",
+    "last_maintenance": "2026-04-10",
+    "rul_hours": 1098,
+    "mtbf": 686,
+    "mttr": 5.4,
+    "failure_modes": [
+      "compressor surge",
+      "oil carryover",
+      "bearing wear"
+    ],
+    "root_causes": [
+      "inlet filter restriction",
+      "separator saturation",
+      "thrust bearing wear"
+    ],
+    "recommended_actions": [
+      "Inspect inlet filter",
+      "Check separator differential pressure",
+      "Trend discharge pressure"
+    ],
+    "production_tph": 102,
+    "base_repair_cost_inr": 480000
+  },
+  {
+    "id": "TSA-SIN-CDR-012",
+    "name": "Sinter Conveyor Drive",
+    "area": "Sinter Plant",
+    "type": "Conveyor Drive",
+    "criticality": "high",
+    "health_score": 79,
+    "risk_level": "medium",
+    "rated_hours": 69800,
+    "running_hours": 68378,
+    "status": "Watchlist",
+    "last_maintenance": "2026-04-06",
+    "rul_hours": 1422,
+    "mtbf": 794,
+    "mttr": 4.4,
+    "failure_modes": [
+      "gear coupling wear",
+      "belt overload",
+      "motor overload"
+    ],
+    "root_causes": [
+      "misalignment",
+      "material buildup",
+      "coupling backlash"
+    ],
+    "recommended_actions": [
+      "Inspect coupling alignment",
+      "Check belt loading",
+      "Clear material buildup"
+    ],
+    "production_tph": 76,
+    "base_repair_cost_inr": 210000
+  },
+  {
+    "id": "TSA-SIN-EFN-013",
+    "name": "Sinter Exhaust Fan",
+    "area": "Sinter Plant",
+    "type": "Exhaust Fan",
+    "criticality": "critical",
+    "health_score": 66,
+    "risk_level": "high",
+    "rated_hours": 71600,
+    "running_hours": 70412,
+    "status": "Restricted Operation",
+    "last_maintenance": "2026-04-02",
+    "rul_hours": 1188,
+    "mtbf": 716,
+    "mttr": 5.1,
+    "failure_modes": [
+      "fan imbalance",
+      "belt slip",
+      "bearing degradation"
+    ],
+    "root_causes": [
+      "dust buildup",
+      "pulley misalignment",
+      "lubrication starvation"
+    ],
+    "recommended_actions": [
+      "Clean fan rotor",
+      "Align belt drive",
+      "Inspect fan bearings"
+    ],
+    "production_tph": 92,
+    "base_repair_cost_inr": 240000
+  },
+  {
+    "id": "TSA-RMH-CNV-014",
+    "name": "Raw Material Conveyor",
+    "area": "Sinter Plant",
+    "type": "Conveyor",
+    "criticality": "high",
+    "health_score": 88,
+    "risk_level": "low",
+    "rated_hours": 73400,
+    "running_hours": 71816,
+    "status": "Available",
+    "last_maintenance": "2026-03-29",
+    "rul_hours": 1584,
+    "mtbf": 848,
+    "mttr": 3.9,
+    "failure_modes": [
+      "idler seizure",
+      "belt tracking fault",
+      "pulley lagging wear"
+    ],
+    "root_causes": [
+      "idler bearing contamination",
+      "skewed pulley",
+      "material carryback"
+    ],
+    "recommended_actions": [
+      "Inspect idlers",
+      "Align belt tracking",
+      "Clean carryback points"
+    ],
+    "production_tph": 70,
+    "base_repair_cost_inr": 160000
+  },
+  {
+    "id": "TSA-UTL-DCF-015",
+    "name": "Dust Collection Fan",
+    "area": "Utilities",
+    "type": "Dust Collection",
+    "criticality": "high",
+    "health_score": 69,
+    "risk_level": "high",
+    "rated_hours": 75200,
+    "running_hours": 73958,
+    "status": "Restricted Operation",
+    "last_maintenance": "2026-03-25",
+    "rul_hours": 1242,
+    "mtbf": 734,
+    "mttr": 4.9,
+    "failure_modes": [
+      "baghouse restriction",
+      "fan vibration",
+      "low suction"
+    ],
+    "root_causes": [
+      "filter bag blinding",
+      "fan imbalance",
+      "duct leakage"
+    ],
+    "recommended_actions": [
+      "Check baghouse differential pressure",
+      "Inspect fan rotor",
+      "Seal duct leakage"
+    ],
+    "production_tph": 64,
+    "base_repair_cost_inr": 220000
+  },
+  {
+    "id": "TSA-UTL-AHU-016",
+    "name": "Air Handling Unit",
+    "area": "Utilities",
+    "type": "Air Handling",
+    "criticality": "medium",
+    "health_score": 91,
+    "risk_level": "low",
+    "rated_hours": 77000,
+    "running_hours": 75362,
+    "status": "Available",
+    "last_maintenance": "2026-03-21",
+    "rul_hours": 1638,
+    "mtbf": 866,
+    "mttr": 3.7,
+    "failure_modes": [
+      "filter choking",
+      "fan belt wear",
+      "low airflow"
+    ],
+    "root_causes": [
+      "filter loading",
+      "belt tension loss",
+      "damper position drift"
+    ],
+    "recommended_actions": [
+      "Replace filters",
+      "Check fan belt tension",
+      "Validate damper position"
+    ],
+    "production_tph": 42,
+    "base_repair_cost_inr": 95000
+  },
+  {
+    "id": "TSA-UTL-CTP-017",
+    "name": "Cooling Tower Pump",
+    "area": "Utilities",
+    "type": "Cooling Pump",
+    "criticality": "high",
+    "health_score": 76,
+    "risk_level": "medium",
+    "rated_hours": 78800,
+    "running_hours": 77432,
+    "status": "Watchlist",
+    "last_maintenance": "2026-03-17",
+    "rul_hours": 1368,
+    "mtbf": 776,
+    "mttr": 4.5,
+    "failure_modes": [
+      "pump cavitation",
+      "seal leakage",
+      "low flow"
+    ],
+    "root_causes": [
+      "blocked suction strainer",
+      "mechanical seal wear",
+      "impeller erosion"
+    ],
+    "recommended_actions": [
+      "Check suction pressure",
+      "Inspect mechanical seal",
+      "Verify cooling-water flow"
+    ],
+    "production_tph": 108,
+    "base_repair_cost_inr": 260000
+  },
+  {
+    "id": "TSA-UTL-WTP-018",
+    "name": "Water Treatment Pump",
+    "area": "Utilities",
+    "type": "Water Pump",
+    "criticality": "high",
+    "health_score": 84,
+    "risk_level": "low",
+    "rated_hours": 80600,
+    "running_hours": 79088,
+    "status": "Available",
+    "last_maintenance": "2026-03-13",
+    "rul_hours": 1512,
+    "mtbf": 824,
+    "mttr": 4.1,
+    "failure_modes": [
+      "low discharge pressure",
+      "seal wear",
+      "pump bearing noise"
+    ],
+    "root_causes": [
+      "impeller wear",
+      "seal face damage",
+      "bearing contamination"
+    ],
+    "recommended_actions": [
+      "Inspect discharge pressure",
+      "Check seal leakage",
+      "Verify bearing vibration"
+    ],
+    "production_tph": 58,
+    "base_repair_cost_inr": 150000
+  },
+  {
+    "id": "TSA-UTL-STG-019",
+    "name": "Steam Turbine Generator",
+    "area": "Utilities",
+    "type": "Steam Turbine",
+    "criticality": "critical",
+    "health_score": 62,
+    "risk_level": "high",
+    "rated_hours": 82400,
+    "running_hours": 81284,
+    "status": "Restricted Operation",
+    "last_maintenance": "2026-03-09",
+    "rul_hours": 1116,
+    "mtbf": 692,
+    "mttr": 5.3,
+    "failure_modes": [
+      "blade vibration",
+      "bearing oil contamination",
+      "steam seal leakage"
+    ],
+    "root_causes": [
+      "rotor imbalance",
+      "oil varnish formation",
+      "gland seal wear"
+    ],
+    "recommended_actions": [
+      "Trend shaft vibration",
+      "Analyze turbine oil",
+      "Inspect steam seal leakage"
+    ],
+    "production_tph": 120,
+    "base_repair_cost_inr": 980000
+  },
+  {
+    "id": "TSA-RM-CNV-020",
+    "name": "Rolling Mill Conveyor System",
+    "area": "Rolling Mill",
+    "type": "Conveyor System",
+    "criticality": "high",
+    "health_score": 72,
+    "risk_level": "medium",
+    "rated_hours": 84200,
+    "running_hours": 82904,
+    "status": "Watchlist",
+    "last_maintenance": "2026-03-05",
+    "rul_hours": 1296,
+    "mtbf": 752,
+    "mttr": 4.8,
+    "failure_modes": [
+      "belt misalignment",
+      "drive pulley wear",
+      "idler seizure"
+    ],
+    "root_causes": [
+      "tracking drift",
+      "pulley lagging wear",
+      "idler bearing contamination"
+    ],
+    "recommended_actions": [
+      "Inspect belt tracking",
+      "Check pulley lagging",
+      "Replace seized idlers"
+    ],
+    "production_tph": 84,
+    "base_repair_cost_inr": 230000
+  },
+  {
+    "id": "TSA-BF-CHG-021",
+    "name": "Blast Furnace Charging Conveyor",
+    "area": "Blast Furnace",
+    "type": "Conveyor System",
+    "criticality": "critical",
+    "health_score": 57,
+    "risk_level": "critical",
+    "rated_hours": 86000,
+    "running_hours": 85054,
+    "status": "Immediate Intervention",
+    "last_maintenance": "2026-03-01",
+    "rul_hours": 946,
+    "mtbf": 662,
+    "mttr": 5.6,
+    "failure_modes": [
+      "belt misalignment",
+      "drive pulley wear",
+      "idler seizure"
+    ],
+    "root_causes": [
+      "tracking drift",
+      "pulley lagging wear",
+      "idler bearing contamination"
+    ],
+    "recommended_actions": [
+      "Inspect belt tracking",
+      "Check pulley lagging",
+      "Replace seized idlers"
+    ],
+    "production_tph": 84,
+    "base_repair_cost_inr": 230000
+  },
+  {
+    "id": "TSA-SMS-EAF-022",
+    "name": "Electric Arc Furnace Transformer",
+    "area": "Steel Melting Shop",
+    "type": "Transformer",
+    "criticality": "critical",
+    "health_score": 67,
+    "risk_level": "high",
+    "rated_hours": 87800,
+    "running_hours": 86594,
+    "status": "Restricted Operation",
+    "last_maintenance": "2026-02-25",
+    "rul_hours": 1206,
+    "mtbf": 722,
+    "mttr": 5.0,
+    "failure_modes": [
+      "winding hot spot",
+      "oil dielectric degradation",
+      "tap changer wear"
+    ],
+    "root_causes": [
+      "overload heating",
+      "moisture ingress",
+      "tap contact erosion"
+    ],
+    "recommended_actions": [
+      "Run dissolved gas analysis",
+      "Check winding temperature",
+      "Inspect tap changer operation"
+    ],
+    "production_tph": 142,
+    "base_repair_cost_inr": 1250000
+  },
+  {
+    "id": "TSA-SIN-SCR-023",
+    "name": "Sinter Screen Drive",
+    "area": "Sinter Plant",
+    "type": "Screen Drive",
+    "criticality": "high",
+    "health_score": 81,
+    "risk_level": "medium",
+    "rated_hours": 89600,
+    "running_hours": 88142,
+    "status": "Watchlist",
+    "last_maintenance": "2026-02-21",
+    "rul_hours": 1458,
+    "mtbf": 806,
+    "mttr": 4.3,
+    "failure_modes": [
+      "screen vibration imbalance",
+      "exciter bearing wear",
+      "deck clogging"
+    ],
+    "root_causes": [
+      "uneven material loading",
+      "bearing fatigue",
+      "screen aperture blinding"
+    ],
+    "recommended_actions": [
+      "Inspect screen exciter",
+      "Check deck clogging",
+      "Balance screen drive"
+    ],
+    "production_tph": 73,
+    "base_repair_cost_inr": 280000
+  },
+  {
+    "id": "HRM-ROLL-01",
+    "name": "Finishing Mill Work Roll",
+    "area": "Rolling Mill",
+    "type": "Work Roll",
+    "criticality": "critical",
+    "health_score": 36,
+    "risk_level": "critical",
+    "rated_hours": 91400,
+    "running_hours": 90832,
+    "status": "Immediate Intervention",
+    "last_maintenance": "2026-02-17",
+    "rul_hours": 568,
+    "mtbf": 536,
+    "mttr": 6.8,
+    "failure_modes": [
+      "bearing degradation",
+      "roll-gap instability",
+      "chatter vibration"
+    ],
+    "root_causes": [
+      "bearing lubrication loss",
+      "chock looseness",
+      "roll surface wear"
+    ],
+    "recommended_actions": [
+      "Inspect work-roll bearing",
+      "Retorque chock clamp",
+      "Restore lubrication flow"
+    ],
+    "production_tph": 170,
+    "base_repair_cost_inr": 550000
+  },
+  {
+    "id": "HRM-COIL-03",
+    "name": "Down Coiler Mandrel",
+    "area": "Rolling Mill",
+    "type": "Coiler Mandrel",
+    "criticality": "critical",
+    "health_score": 31,
+    "risk_level": "critical",
+    "rated_hours": 93200,
+    "running_hours": 92722,
+    "status": "Immediate Intervention",
+    "last_maintenance": "2026-02-13",
+    "rul_hours": 478,
+    "mtbf": 506,
+    "mttr": 7.0,
+    "failure_modes": [
+      "mandrel expansion failure",
+      "hydraulic valve leakage",
+      "wrapper roll misalignment"
+    ],
+    "root_causes": [
+      "worn mandrel segment",
+      "expansion valve leakage",
+      "wrapper roll alignment drift"
+    ],
+    "recommended_actions": [
+      "Inspect mandrel segments",
+      "Test expansion valve leakage",
+      "Align wrapper roll"
+    ],
+    "production_tph": 165,
+    "base_repair_cost_inr": 720000
+  }
+]

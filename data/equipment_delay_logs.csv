@@ -1,0 +1,5 @@
+delay_id,equipment_id,equipment_name,timestamp,delay_minutes,delay_category,production_impact,operator_note
+DL-001,HRM-ROLL-01,Finishing Mill Work Roll,2026-06-06T11:20:00,42,quality_hold,strip chatter marks observed after threading,"Reduced speed and waited for maintenance check"
+DL-002,HRM-FURN-02,Reheating Furnace Walking Beam,2026-06-06T10:05:00,65,transfer_delay,slab queue buildup,"Walking beam travel slow and hydraulic pressure unstable"
+DL-003,HRM-COIL-03,Down Coiler Mandrel,2026-06-06T12:40:00,88,coiling_delay,coil rejection risk,"Tail-end slip and mandrel expansion fault repeated"
+

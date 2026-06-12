@@ -1,0 +1,141 @@
+{
+  "generated_at": "2026-06-06T19:07:35.359043+00:00",
+  "query": "Down coiler mandrel expansion failed twice and tail-end slip is visible. Prioritize maintenance actions and spare procurement.",
+  "agent_steps": [
+    "intake maintenance query and optional equipment id",
+    "retrieve relevant manuals, SOPs, and historical cases",
+    "evaluate condition-monitoring limits",
+    "estimate RUL from service age and condition penalty",
+    "score risk using condition, history severity, and spares constraints",
+    "generate prioritized maintenance and procurement actions"
+  ],
+  "equipment": {
+    "equipment_id": "HRM-COIL-03",
+    "equipment_name": "Down Coiler Mandrel",
+    "active_alert": "MANDREL_EXPANSION_FAIL",
+    "timestamp": "2026-06-06T13:55:00"
+  },
+  "diagnosis": {
+    "probable_fault": "MANDREL_EXPANSION_FAIL",
+    "probable_root_causes": [
+      "Hydraulic valve leakage and worn mandrel segment",
+      "Wrapper roll misalignment"
+    ],
+    "condition_breaches": [
+      {
+        "metric": "temperature_c",
+        "value": 76.0,
+        "level": "warn",
+        "limit": 75.0
+      },
+      {
+        "metric": "vibration_mm_s",
+        "value": 5.4,
+        "level": "warn",
+        "limit": 4.5
+      },
+      {
+        "metric": "motor_current_a",
+        "value": 355.0,
+        "level": "warn",
+        "limit": 320.0
+      },
+      {
+        "metric": "hydraulic_pressure_bar",
+        "value": 118.0,
+        "level": "warn",
+        "limit": 120.0
+      }
+    ]
+  },
+  "prediction": {
+    "method": "service interval adjusted by current condition breaches",
+    "service_interval_hours": 1900,
+    "operating_hours_since_service": 1710,
+    "health_index": 0.0,
+    "estimated_remaining_useful_life_hours": 0,
+    "rul_label": "Immediate intervention",
+    "rul_explanation": "Current service age and active condition breaches have exhausted the safe operating window."
+  },
+  "risk": {
+    "score": 87.4,
+    "level": "critical",
+    "drivers": {
+      "condition_score": 48.0,
+      "historical_severity_score": 4,
+      "spares_penalty": 13.0
+    }
+  },
+  "priority": {
+    "urgency": "immediate",
+    "plant_bottleneck_priority": [
+      {
+        "equipment_id": "HRM-COIL-03",
+        "equipment_name": "Down Coiler Mandrel",
+        "risk_score": 87.4,
+        "risk_level": "critical",
+        "selected": true
+      },
+      {
+        "equipment_id": "HRM-ROLL-01",
+        "equipment_name": "Finishing Mill Work Roll",
+        "risk_score": 86.4,
+        "risk_level": "critical",
+        "selected": false
+      },
+      {
+        "equipment_id": "HRM-FURN-02",
+        "equipment_name": "Reheating Furnace Walking Beam",
+        "risk_score": 66.1,
+        "risk_level": "high",
+        "selected": false
+      }
+    ]
+  },
+  "recommendations": [
+    "Move equipment to restricted operation and prepare a controlled stop window.",
+    "Inspect wrapper roll alignment, mandrel segment wear, and expansion-drive looseness.",
+    "Confirm hydraulic pressure locally, inspect valve leakage, and prepare seal kit replacement.",
+    "Trend motor current against load; inspect mechanical drag and expansion timing.",
+    "Use prior case FH-005 as reference: Held production, changed valve, planned segment replacement.",
+    "Procurement action: mandrel segment set has qty=0 and lead_time=28 days; escalate now.",
+    "Create digital log entry for HRM-COIL-03 with alert MANDREL_EXPANSION_FAIL."
+  ],
+  "traceability": [
+    {
+      "source": "failure_history",
+      "title": "FH-005",
+      "score": 12.0,
+      "detail": "HRM-COIL-03 Down Coiler Mandrel Mandrel expansion system: MANDREL_EXPANSION_FAIL. Symptoms: tail-end slip; high wrapping current; telescopic coil. Root cause: Hydraulic valve leakage and worn mandrel segment. Action: Held production, changed valve, planned segment replacement."
+    },
+    {
+      "source": "equipment_manuals",
+      "title": "HRM-COIL-03 down coiler mandrel",
+      "score": 11.0,
+      "detail": "Criticality: critical Common symptoms: - Coil tail-end slip. - Mandrel expansion fault. - High motor current during wrapping. - Telescopic coil formation. Likely causes: - Mandrel segment wear. - Hydraulic expansion pressure loss. - Wrapper roll misalignment. - Control timing mismatch at tail end. Checks: - Verify mandrel hydraulic pressure during expansion. - Inspect mandrel segment surface condition. - Check wra..."
+    },
+    {
+      "source": "failure_history",
+      "title": "FH-006",
+      "score": 10.0,
+      "detail": "HRM-COIL-03 Down Coiler Mandrel Wrapper roll: WRAPPER_MISALIGN. Symptoms: telescopic coil; wrapper roll vibration. Root cause: Wrapper roll misalignment. Action: Aligned wrapper roll and updated tail-end timing."
+    },
+    {
+      "source": "maintenance_sops",
+      "title": "Hydraulic pressure instability SOP",
+      "score": 3.0,
+      "detail": "1. Confirm sensor reading from local gauge and control system historian. 2. Check pump, accumulator pressure, valve leakage, and seal condition. 3. If pressure drop affects a critical motion, stop the motion sequence and isolate the hydraulic circuit. 4. Review spare availability for seal kit, servo valve, and hose assembly. 5. Record action taken and actual root cause in the digital maintenance log."
+    },
+    {
+      "source": "maintenance_sops",
+      "title": "Vibration alarm SOP",
+      "score": 2.0,
+      "detail": "1. Acknowledge the alarm and capture equipment ID, timestamp, coil ID, speed, vibration, temperature, and recent maintenance activity. 2. If vibration is above trip level or paired with abnormal temperature rise, reduce load and prepare controlled stop. 3. Inspect lubrication flow, bearing temperature, coupling condition, and mechanical looseness. 4. If vibration normalizes after load reduction, continue at restri..."
+    }
+  ],
+  "assumptions": [
+    "RUL is an engineering estimate for demonstration, not a certified prediction.",
+    "Thresholds are configurable plant rules and should be calibrated with historian data.",
+    "LLM or SLM integration can replace the deterministic reasoning backend while preserving traceability."
+  ]
+}

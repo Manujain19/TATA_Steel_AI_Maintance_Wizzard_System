@@ -1,0 +1,18 @@
+[
+  {
+    "name": "finishing_mill_vibration",
+    "equipment_id": "HRM-ROLL-01",
+    "query": "Finishing mill has high drive-side vibration and chatter marks after coil threading. What is the likely root cause and what should we do first?"
+  },
+  {
+    "name": "down_coiler_expansion_failure",
+    "equipment_id": "HRM-COIL-03",
+    "query": "Down coiler mandrel expansion failed twice and tail-end slip is visible. Prioritize maintenance actions and spare procurement."
+  },
+  {
+    "name": "furnace_walking_beam_delay",
+    "equipment_id": "HRM-FURN-02",
+    "query": "Walking beam transfer is delayed and hydraulic pressure is low. Is this urgent?"
+  }
+]
+

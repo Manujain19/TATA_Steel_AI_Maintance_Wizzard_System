@@ -1,0 +1,17 @@
+pandas
+numpy
+scikit-learn
+xgboost
+lightgbm
+fastapi
+uvicorn[standard]
+pydantic
+psycopg[binary]
+chromadb
+qdrant-client
+langgraph
+langchain
+langsmith
+sentence-transformers
+pytest
+pytest-cov
