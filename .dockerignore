@@ -1,5 +1,7 @@
 .git
 .deps
+.model_cache
+.vectorstores
 __pycache__
 *.pyc
 .env

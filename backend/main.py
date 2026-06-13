@@ -932,6 +932,7 @@ def background_preload() -> None:
 async def index():
     return FileResponse(
         ROOT_DIR / "web" / "index.html",
+        media_type="text/html",
         headers={
             "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0",
             "Pragma": "no-cache",
@@ -940,12 +941,70 @@ async def index():
     )
 
 
+@app.head("/")
+async def index_head():
+    return Response(status_code=200)
+
+
 @app.get("/favicon.ico")
 async def favicon():
     return Response(status_code=204)
 
 
-app.mount("/static", StaticFiles(directory=ROOT_DIR / "web"), name="static")
+STATIC_DIR = ROOT_DIR / "web"
+STATIC_HEADERS = {
+    "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0",
+    "Pragma": "no-cache",
+    "Expires": "0",
+}
+STATIC_MEDIA_TYPES = {
+    ".css": "text/css; charset=utf-8",
+    ".js": "application/javascript; charset=utf-8",
+    ".mjs": "application/javascript; charset=utf-8",
+    ".json": "application/json; charset=utf-8",
+    ".png": "image/png",
+    ".jpg": "image/jpeg",
+    ".jpeg": "image/jpeg",
+    ".svg": "image/svg+xml",
+    ".ico": "image/x-icon",
+}
+
+
+def static_file_path(asset_path: str) -> Path:
+    candidate = (STATIC_DIR / asset_path).resolve()
+    static_root = STATIC_DIR.resolve()
+    if static_root != candidate and static_root not in candidate.parents:
+        raise HTTPException(status_code=404, detail="Static asset not found")
+    if not candidate.is_file():
+        raise HTTPException(status_code=404, detail="Static asset not found")
+    return candidate
+
+
+@app.get("/static/{asset_path:path}", include_in_schema=False)
+async def static_asset(asset_path: str):
+    file_path = static_file_path(asset_path)
+    media_type = STATIC_MEDIA_TYPES.get(file_path.suffix.lower(), "application/octet-stream")
+    return FileResponse(file_path, media_type=media_type, headers=STATIC_HEADERS)
+
+
+@app.get("/api/static-health")
+async def static_health():
+    files = {}
+    for name in ["index.html", "styles.css", "app.js", "digital_twin.js"]:
+        path = STATIC_DIR / name
+        files[name] = {
+            "exists": path.is_file(),
+            "size_bytes": path.stat().st_size if path.is_file() else 0,
+            "path": str(path),
+        }
+    return {
+        "healthy": all(item["exists"] and item["size_bytes"] > 0 for item in files.values()),
+        "static_directory": str(STATIC_DIR),
+        "files": files,
+    }
+
+
+app.mount("/static-files", StaticFiles(directory=STATIC_DIR), name="static-files")
 
 
 @app.get("/api/bootstrap")
