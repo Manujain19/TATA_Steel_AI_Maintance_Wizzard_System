@@ -454,17 +454,7 @@ async def startup() -> None:
         )
 
     preload_launch_started = time.perf_counter()
-    if settings.background_preload_ai_models:
-        BACKGROUND_STATUS.update({"running": True, "completed": False, "started_at": datetime.now().isoformat(timespec="seconds"), "completed_at": None, "error": None})
-        jobs = build_preload_jobs()
-        logger.warning(
-        "PRELOAD JOBS FOUND=%s",
-        list(jobs.keys())
-        )
-
-        preload_manager.launch(jobs)
-
-    logger.warning("PRELOAD MANAGER STARTED")
+    ensure_preload_started("startup")
     launch_post_ready_model_warmup_watcher()
     preload_launch_ms = round((time.perf_counter() - preload_launch_started) * 1000, 2)
     STARTUP_DURATION_MS = round((time.perf_counter() - startup_started) * 1000, 2)
@@ -665,6 +655,29 @@ def build_preload_jobs() -> dict[str, Callable]:
         "kpi_cache_warmup": warm_kpis,
     }
 
+
+def ensure_preload_started(reason: str = "startup") -> bool:
+    if not settings.background_preload_ai_models:
+        logger.warning("Preload launch skipped reason=%s background_preload=false", reason)
+        return False
+    if preload_manager.running or preload_manager.completed or preload_manager.started_at:
+        return False
+    BACKGROUND_STATUS.update(
+        {
+            "running": True,
+            "completed": False,
+            "started_at": datetime.now().isoformat(timespec="seconds"),
+            "completed_at": None,
+            "error": None,
+        }
+    )
+    jobs = build_preload_jobs()
+    logger.warning("PRELOAD JOBS FOUND=%s reason=%s", list(jobs.keys()), reason)
+    preload_manager.launch(jobs)
+    logger.warning("PRELOAD MANAGER STARTED reason=%s", reason)
+    return True
+
+
 def model_warmup_status() -> dict:
     with MODEL_WARMUP_LOCK:
         return {
@@ -834,6 +847,7 @@ def launch_post_ready_model_warmup_watcher() -> None:
 
 
 def preload_status_payload() -> dict:
+    ensure_preload_started("status_request")
     manager_status = preload_manager.status()
     warmup_status = model_warmup_status()
     BACKGROUND_STATUS.update(
