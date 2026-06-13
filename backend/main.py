@@ -958,6 +958,94 @@ def require_ai_ready() -> None:
         raise HTTPException(status_code=425, detail="AI stack is initializing. Please wait.")
 
 
+CASUAL_CHAT_TERMS = {
+    "hi",
+    "hello",
+    "hey",
+    "hii",
+    "good morning",
+    "good afternoon",
+    "good evening",
+    "thanks",
+    "thank you",
+    "ok",
+    "okay",
+}
+
+MAINTENANCE_INTENT_TERMS = {
+    "asset",
+    "bearing",
+    "breakdown",
+    "cost",
+    "diagnosis",
+    "downtime",
+    "failure",
+    "gearbox",
+    "health",
+    "inspection",
+    "maintenance",
+    "motor",
+    "pressure",
+    "procurement",
+    "recommend",
+    "risk",
+    "root cause",
+    "rul",
+    "sensor",
+    "shutdown",
+    "spare",
+    "temperature",
+    "vibration",
+    "work order",
+}
+
+
+def extract_user_question(message: str) -> str:
+    text = str(message or "").strip()
+    marker = "User Question:"
+    if marker in text:
+        text = text.split(marker, 1)[1].strip()
+        for delimiter in ("\nSelected asset:", "\nMemory:"):
+            if delimiter in text:
+                text = text.split(delimiter, 1)[0].strip()
+    return text
+
+
+def is_casual_chat(message: str) -> bool:
+    text = extract_user_question(message).lower().strip(" .!?")
+    if not text:
+        return False
+    if any(term in text for term in MAINTENANCE_INTENT_TERMS):
+        return False
+    words = text.split()
+    if text in CASUAL_CHAT_TERMS:
+        return True
+    if len(words) <= 5 and any(term in text for term in CASUAL_CHAT_TERMS):
+        return True
+    return False
+
+
+def casual_chat_response(equipment_id: str | None) -> str:
+    asset = next(
+        (
+            item
+            for item in repo.assets()
+            if item.get("id") == equipment_id or item.get("equipment_id") == equipment_id
+        ),
+        {},
+    )
+    asset_name = asset.get("name") or asset.get("asset_name") or asset.get("equipment_name") or equipment_id
+    if asset_name:
+        return (
+            f"Hello Manu, I am ready. The active asset context is {asset_name}. "
+            "Ask me about risk, root cause, RUL, shutdown decisions, spare risks, or work orders."
+        )
+    return (
+        "Hello Manu, I am ready. Select an asset and ask me about risk, root cause, RUL, "
+        "shutdown decisions, spare risks, or work orders."
+    )
+
+
 def background_preload() -> None:
     started = time.perf_counter()
     logger.info("Background AI preload started")
@@ -1182,12 +1270,45 @@ async def demo():
 
 @app.post("/api/chat")
 async def chat(payload: CopilotRequest):
-    require_ai_ready()
     equipment_id = payload.equipment_id
     message = str(payload.message or "").strip()
     history = payload.history if isinstance(payload.history, list) else []
     if not message:
         raise HTTPException(status_code=400, detail="Message is required.")
+
+    original_question = extract_user_question(message)
+    if is_casual_chat(message):
+        response = casual_chat_response(equipment_id)
+        turn = {
+            "timestamp": datetime.now().isoformat(timespec="seconds"),
+            "equipment_id": equipment_id,
+            "user": original_question or message,
+            "assistant": response,
+            "message": response,
+            "response": response,
+            "content": response,
+            "answer": response,
+            "risk_level": None,
+            "sources": {},
+            "confidence": None,
+            "chat_intent": "casual",
+        }
+        return {
+            "turn": turn,
+            "chat_intent": "casual",
+            "message": response,
+            "response": response,
+            "content": response,
+            "answer": response,
+            "timing": {
+                "retrieval_ms": 0,
+                "rerank_ms": 0,
+                "llm_ms": 0,
+                "total_ms": 0,
+            },
+        }
+
+    require_ai_ready()
 
     context_messages = [
         str(item.get("content", ""))

@@ -4105,6 +4105,21 @@ function structuredActionType(message) {
   return "";
 }
 
+function isCasualChatMessage(message) {
+  const text = String(message || "").trim().toLowerCase().replace(/[.!?]+$/g, "");
+  if (!text) return false;
+  const maintenanceTerms = [
+    "asset", "bearing", "breakdown", "cost", "diagnosis", "downtime", "failure", "gearbox",
+    "health", "inspection", "maintenance", "motor", "pressure", "procurement", "recommend",
+    "risk", "root cause", "rul", "sensor", "shutdown", "spare", "temperature", "vibration",
+    "work order",
+  ];
+  if (maintenanceTerms.some((term) => text.includes(term))) return false;
+  const greetings = ["hi", "hello", "hey", "hii", "good morning", "good afternoon", "good evening", "thanks", "thank you", "ok", "okay"];
+  if (greetings.includes(text)) return true;
+  return text.split(/\s+/).length <= 5 && greetings.some((term) => text.includes(term));
+}
+
 function actionSpecialist(type) {
   return {
     "Shutdown Recommendation": "Operations Supervisor",
@@ -4309,6 +4324,9 @@ function buildResponseCard(type, report) {
 }
 
 function buildAssistantText(message, data) {
+  if (data?.chat_intent === "casual" || data?.turn?.chat_intent === "casual" || isCasualChatMessage(message)) {
+    return data?.turn?.assistant || data?.message || data?.response || data?.content || data?.answer || "Hello Manu, I am ready.";
+  }
   const report = normalizeReport(data?.report || state.report || {});
   const context = activeAssetContext();
   const reportAssetId = assetDisplayId(report?.equipment);
@@ -5081,11 +5099,14 @@ async function sendChat(overrideMessage = "") {
       timestamp: new Date().toISOString(),
     });
     const actionType = structuredActionType(message);
+    const casualChat = isCasualChatMessage(message);
     const data = await apiWithTimeout("/api/chat", {
       method: "POST",
       body: JSON.stringify({
         equipment_id: state.selectedEquipmentId,
-        message: `${actionPrompt(actionType, message, asset)}\nMemory: ${JSON.stringify(memoryContext)}`,
+        message: casualChat
+          ? message
+          : `${actionPrompt(actionType, message, asset)}\nMemory: ${JSON.stringify(memoryContext)}`,
         history,
       }),
     }, 15000, controller);
@@ -5104,22 +5125,23 @@ async function sendChat(overrideMessage = "") {
       timestamp: new Date().toISOString(),
     });
     setBackendStatus(true);
-    data.report = normalizeReport(data.report);
+    if (data.report) data.report = normalizeReport(data.report);
     const chatReportAssetId = assetDisplayId(data?.report?.equipment || {});
     if (chatReportAssetId && chatReportAssetId === state.selectedEquipmentId) {
       setInvestigationStatus(INVESTIGATION_STATES.COMPLETED, chatReportAssetId);
       state.selectedFinancialImpact = data?.financial_impact || data?.failure_cost_impact || financialImpactFromReport(data.report);
     }
     const responseText = buildAssistantText(message, data);
-    const card = buildResponseCard(actionType, data.report);
-    const evidence = buildEvidence(data.report.traceability);
+    const responseIsCasual = casualChat || data?.chat_intent === "casual" || data?.turn?.chat_intent === "casual";
+    const card = responseIsCasual ? null : buildResponseCard(actionType, data.report);
+    const evidence = responseIsCasual ? null : buildEvidence(data.report.traceability);
     const assistantMessage = {
       id: messageId(),
       role: "assistant",
       content: responseText,
       timestamp: nowStamp(),
       status: "complete",
-      asset_id: assetDisplayId(data.report.equipment),
+      asset_id: assetDisplayId(data?.report?.equipment || { equipment_id: state.selectedEquipmentId }),
       timing: data.timing,
       card,
       evidence,
@@ -5137,16 +5159,18 @@ async function sendChat(overrideMessage = "") {
       previous_investigation: data?.report?.diagnosis?.probable_fault,
       generated_reports: [
         ...(memoryContext.generated_reports || []),
-        actionType || "Follow-up Chat",
+        responseIsCasual ? "Casual Chat" : actionType || "Follow-up Chat",
       ].slice(-10),
       root_causes_discussed: [
         ...(memoryContext.root_causes_discussed || []),
         ...(data?.report?.diagnosis?.probable_root_causes || []),
       ].slice(-12),
     });
-    renderReport(data?.report);
-    renderExecutiveDashboardView();
-    showToast("Maintenance Wizard response generated.");
+    if (!responseIsCasual && data?.report) {
+      renderReport(data.report);
+      renderExecutiveDashboardView();
+    }
+    showToast(responseIsCasual ? "Maintenance Wizard is ready." : "Maintenance Wizard response generated.");
   } catch (error) {
     clearInterval(thinkingTimer);
     console.log("CHAT_REQUEST_FAILED", {
