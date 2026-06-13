@@ -38,7 +38,7 @@ def main() -> None:
     documents = load_documents()
     chunks = chunk_documents(documents)
     pipeline.ensure_index()
-    status = pipeline.health_status("maintenance failure")
+    status = pipeline.health_status()
     vector_store = status["vector_store"]
     expected_collection = vector_store.get("expected_collection") or f"maintenance_knowledge_d{vector_store.get('embedding_dimension') or 384}"
     print(
