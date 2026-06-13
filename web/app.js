@@ -57,6 +57,7 @@ const state = {
 
 const STARTUP_GRACE_SECONDS = 60;
 const STARTUP_POLL_MS = 7000;
+const MODEL_WARMUP_POLL_MS = 5000;
 const READY_POLL_MS = 30000;
 const STARTUP_HEALTH_READY_POLL_MS = 60000;
 const DISPLAY_EMPTY = "\u2014";
@@ -670,7 +671,13 @@ async function refreshPreloadStatus(options = {}) {
   const shouldPollStartupHealth = forceStartupHealth
     || !state.systemReady
     || Date.now() - state.lastStartupHealthPollAt >= STARTUP_HEALTH_READY_POLL_MS;
-  const shouldPollModelStatus = false;
+  const shouldPollModelStatus = Boolean(
+    options.forceModelStatus
+    || !state.aiModelReady
+    || state.preloadStatus?.embedding_warming
+    || state.preloadStatus?.reranker_warming
+    || state.preloadStatus?.model_warmup?.running
+  );
   const [preloadResult, startupResult, modelResult] = await Promise.allSettled([
     apiWithTimeout("/api/preload-status", {}, 15000),
     shouldPollStartupHealth ? apiWithTimeout("/api/startup-health", {}, 15000) : Promise.resolve({ skipped: true }),
@@ -915,6 +922,7 @@ function renderAssetContextPreview() {
 
 function nextStatusPollDelay() {
   if (!state.systemReady) return STARTUP_POLL_MS;
+  if (!state.aiModelReady) return MODEL_WARMUP_POLL_MS;
   return READY_POLL_MS;
 }
 
@@ -4747,7 +4755,17 @@ async function analyze() {
     return;
   }
   if (!state.systemReady) {
+    await pollStatusNow("run_investigation_gate", { forceStartupHealth: true, forceModelStatus: true });
+  }
+  if (!state.systemReady) {
     showToast("AI Engine Initializing...");
+    return;
+  }
+  if (!state.aiModelReady) {
+    await pollStatusNow("run_investigation_model_gate", { forceModelStatus: true });
+  }
+  if (!state.aiModelReady) {
+    showToast("AI Models Warming Up...");
     return;
   }
   if (!els.queryInput.value.trim()) {
