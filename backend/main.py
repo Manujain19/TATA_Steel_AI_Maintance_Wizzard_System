@@ -422,15 +422,49 @@ def build_source_citations(documents: list[dict]) -> dict:
 @app.on_event("startup")
 async def startup() -> None:
     global STARTUP_DURATION_MS, ROUTE_REGISTRATION_MS
+
     startup_started = time.perf_counter()
     route_started = time.perf_counter()
+
     ROUTE_REGISTRATION_MS = round((route_started - PROCESS_STARTED_AT) * 1000, 2)
+
+    logger.warning(
+        "DEBUG BACKGROUND_PRELOAD_AI_MODELS=%s",
+        settings.background_preload_ai_models,
+    )
+
+    logger.warning(
+        "DEBUG EAGER_LOAD_AI_MODELS=%s",
+        settings.eager_load_ai_models,
+    )
+
+    logger.warning(
+        "DEBUG ENABLE_RUNTIME_MODEL_LOADING=%s",
+        settings.enable_runtime_model_loading,
+    )
+
+    logger.warning(
+        "DEBUG ALLOW_MODEL_FALLBACK=%s",
+        settings.allow_model_fallback,
+    )
+
     if settings.llm_fail_fast:
-        logger.warning("LLM_FAIL_FAST is deferred to preload to keep FastAPI startup non-blocking.")
+        logger.warning(
+            "LLM_FAIL_FAST is deferred to preload to keep FastAPI startup non-blocking."
+        )
+
     preload_launch_started = time.perf_counter()
     if settings.background_preload_ai_models:
         BACKGROUND_STATUS.update({"running": True, "completed": False, "started_at": datetime.now().isoformat(timespec="seconds"), "completed_at": None, "error": None})
-        preload_manager.launch(build_preload_jobs())
+        jobs = build_preload_jobs()
+        logger.warning(
+        "PRELOAD JOBS FOUND=%s",
+        list(jobs.keys())
+        )
+
+        preload_manager.launch(jobs)
+
+    logger.warning("PRELOAD MANAGER STARTED")
     launch_post_ready_model_warmup_watcher()
     preload_launch_ms = round((time.perf_counter() - preload_launch_started) * 1000, 2)
     STARTUP_DURATION_MS = round((time.perf_counter() - startup_started) * 1000, 2)
@@ -622,11 +656,14 @@ def build_preload_jobs() -> dict[str, Callable]:
         "postgres_seed": postgres_seed,
         "vector_store_warmup": warm_vector,
         "workflow_compile": warm_workflow,
+
+        "embedding_model_warmup": warm_embedding,
+        "reranker_model_warmup": warm_reranker,
+
         "dashboard_cache_warmup": warm_dashboards,
         "asset_cache_warmup": warm_assets,
         "kpi_cache_warmup": warm_kpis,
     }
-
 
 def model_warmup_status() -> dict:
     with MODEL_WARMUP_LOCK:

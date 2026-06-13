@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-12T11:47:22.598351+00:00",
-  "query": "Investigate Rolling Mill Drive Motor (TSA-RM-MTR-001). Active alert: EARLY_WARNING. Sensor anomalies: vibration 4.97 mm/s, hydraulic pressure 106.7 bar, oil pressure 2.5 bar, motor current 337.8 A. Known failure modes: winding insulation degradation, rotor imbalance, overheating. Generate asset-specific diagnosis, RUL, business impact, root cause, maintenance action, and spare strategy.",
+  "generated_at": "2026-06-13T12:45:47.738627+00:00",
+  "query": "Investigate Hydraulic Power Pack (TSA-RM-HPP-003). Active alert: HYD_PRESS_LOW. Sensor anomalies: vibration 5.32 mm/s, temperature 77.5 C, hydraulic pressure 91.1 bar, oil pressure 2.1 bar. Known failure modes: pressure leak, seal failure, pump cavitation. Generate asset-specific diagnosis, RUL, business impact, root cause, maintenance action, and spare strategy.",
   "agent_steps": [
     "intake maintenance query and optional equipment id",
     "retrieve relevant manuals, SOPs, and historical cases",
@@ -10,102 +10,101 @@
     "generate prioritized maintenance and procurement actions"
   ],
   "equipment": {
-    "equipment_id": "TSA-RM-MTR-001",
-    "equipment_name": "Rolling Mill Drive Motor",
-    "active_alert": "EARLY_WARNING",
+    "equipment_id": "TSA-RM-HPP-003",
+    "equipment_name": "Hydraulic Power Pack",
+    "active_alert": "HYD_PRESS_LOW",
     "timestamp": "2026-06-07T21:29:25",
     "area": "Rolling Mill",
-    "type": "Drive Motor",
+    "type": "Hydraulic System",
     "criticality": "critical",
-    "status": "Restricted Operation"
+    "status": "Immediate Intervention"
   },
   "diagnosis": {
-    "probable_fault": "winding insulation degradation",
+    "probable_fault": "pressure leak",
     "probable_root_causes": [
-      "thermal overload",
-      "rotor eccentricity"
+      "actuator seal leakage"
     ],
     "condition_breaches": [
       {
+        "metric": "temperature_c",
+        "value": 77.5,
+        "level": "warn",
+        "limit": 75.0
+      },
+      {
         "metric": "vibration_mm_s",
-        "value": 4.97,
+        "value": 5.32,
         "level": "warn",
         "limit": 4.5
       },
       {
-        "metric": "motor_current_a",
-        "value": 337.8,
-        "level": "warn",
-        "limit": 320.0
-      },
-      {
         "metric": "oil_pressure_bar",
-        "value": 2.5,
+        "value": 2.1,
         "level": "warn",
         "limit": 2.8
       },
       {
         "metric": "hydraulic_pressure_bar",
-        "value": 106.7,
-        "level": "warn",
-        "limit": 120.0
+        "value": 91.1,
+        "level": "trip",
+        "limit": 95.0
       }
     ],
     "asset_failure_modes": [
       {
-        "equipment_id": "TSA-RM-MTR-001",
-        "asset_name": "Rolling Mill Drive Motor",
+        "equipment_id": "TSA-RM-HPP-003",
+        "asset_name": "Hydraulic Power Pack",
         "area": "Rolling Mill",
-        "asset_type": "Drive Motor",
-        "failure_mode": "winding insulation degradation",
-        "likely_root_cause": "thermal overload",
-        "recommended_action": "Perform insulation resistance test",
-        "primary_spare": "motor winding kit",
-        "production_tph": 145,
-        "base_repair_cost_inr": 420000
+        "asset_type": "Hydraulic System",
+        "failure_mode": "pressure leak",
+        "likely_root_cause": "actuator seal leakage",
+        "recommended_action": "Pressure decay test",
+        "primary_spare": "hydraulic seal kit",
+        "production_tph": 132,
+        "base_repair_cost_inr": 360000
       },
       {
-        "equipment_id": "TSA-RM-MTR-001",
-        "asset_name": "Rolling Mill Drive Motor",
+        "equipment_id": "TSA-RM-HPP-003",
+        "asset_name": "Hydraulic Power Pack",
         "area": "Rolling Mill",
-        "asset_type": "Drive Motor",
-        "failure_mode": "rotor imbalance",
-        "likely_root_cause": "cooling fan fouling",
-        "recommended_action": "Thermography on stator body",
-        "primary_spare": "cooling fan assembly",
-        "production_tph": 145,
-        "base_repair_cost_inr": 420000
+        "asset_type": "Hydraulic System",
+        "failure_mode": "seal failure",
+        "likely_root_cause": "suction restriction",
+        "recommended_action": "Inspect suction strainer",
+        "primary_spare": "servo valve",
+        "production_tph": 132,
+        "base_repair_cost_inr": 360000
       },
       {
-        "equipment_id": "TSA-RM-MTR-001",
-        "asset_name": "Rolling Mill Drive Motor",
+        "equipment_id": "TSA-RM-HPP-003",
+        "asset_name": "Hydraulic Power Pack",
         "area": "Rolling Mill",
-        "asset_type": "Drive Motor",
-        "failure_mode": "overheating",
-        "likely_root_cause": "rotor eccentricity",
-        "recommended_action": "Inspect rotor balance and cooling fan",
-        "primary_spare": "RTD temperature sensor",
-        "production_tph": 145,
-        "base_repair_cost_inr": 420000
+        "asset_type": "Hydraulic System",
+        "failure_mode": "pump cavitation",
+        "likely_root_cause": "servo valve internal leakage",
+        "recommended_action": "Replace leaking seal and validate servo valve",
+        "primary_spare": "pump cartridge",
+        "production_tph": 132,
+        "base_repair_cost_inr": 360000
       }
     ]
   },
   "prediction": {
     "method": "asset digital twin RUL blended with current condition breaches",
     "service_interval_hours": 1800,
-    "operating_hours_since_service": 48668,
+    "operating_hours_since_service": 52618,
     "health_index": 0.0,
-    "estimated_remaining_useful_life_hours": 1332,
-    "rul_label": "1332 hours",
-    "rul_explanation": "Uses Rolling Mill Drive Motor digital twin health, rated hours, active sensor anomalies, and asset-specific failure history."
+    "estimated_remaining_useful_life_hours": 982,
+    "rul_label": "982 hours",
+    "rul_explanation": "Uses Hydraulic Power Pack digital twin health, rated hours, active sensor anomalies, and asset-specific failure history."
   },
   "risk": {
-    "score": 87.4,
-    "level": "high",
+    "score": 100.0,
+    "level": "critical",
     "drivers": {
-      "condition_score": 48.0,
-      "historical_severity_score": 3,
-      "spares_penalty": 25.0
+      "condition_score": 58.0,
+      "historical_severity_score": 4,
+      "spares_penalty": 23.0
     }
   },
   "priority": {
@@ -116,7 +115,7 @@
         "equipment_name": "Hydraulic Power Pack",
         "risk_score": 100.0,
         "risk_level": "critical",
-        "selected": false
+        "selected": true
       },
       {
         "equipment_id": "TSA-CCM-ROL-009",
@@ -158,7 +157,7 @@
         "equipment_name": "Rolling Mill Drive Motor",
         "risk_score": 87.4,
         "risk_level": "high",
-        "selected": true
+        "selected": false
       },
       {
         "equipment_id": "TSA-SIN-EFN-013",
@@ -289,50 +288,47 @@
     ]
   },
   "recommendations": [
-    "Move Rolling Mill Drive Motor to restricted operation and prepare a controlled stop window.",
-    "Investigate winding insulation degradation caused by thermal overload; execute: Perform insulation resistance test.",
-    "Perform vibration spectrum review, rotor balance check, and motor bearing inspection.",
+    "Move Hydraulic Power Pack to restricted operation and prepare a controlled stop window.",
+    "Investigate pressure leak caused by actuator seal leakage; execute: Pressure decay test.",
+    "Inspect bearing condition, coupling looseness, and lubrication flow before next campaign.",
     "Verify oil pump delivery, inspect lubrication circuit restriction, and clean asset-specific filters.",
     "Confirm hydraulic pressure locally, inspect pump cavitation, valve leakage, and seal failure paths.",
-    "Trend motor current against load; inspect mechanical drag and expansion timing.",
-    "Use prior case FH-0015 as reference: Perform insulation resistance test.",
-    "Procurement action: cooling fan assembly has qty=0 and lead_time=35 days; escalate now.",
-    "Procurement action: cooling fan assembly has qty=5 and lead_time=35 days; escalate now.",
-    "Procurement action: cooling fan assembly has qty=2 and lead_time=35 days; escalate now.",
-    "Procurement action: cooling fan assembly has qty=0 and lead_time=14 days; escalate now.",
-    "Procurement action: RTD temperature sensor has qty=0 and lead_time=7 days; escalate now.",
-    "Create digital log entry for TSA-RM-MTR-001 with alert EARLY_WARNING."
+    "Use prior case FH-0029 as reference: Pressure decay test.",
+    "Procurement action: hydraulic seal kit has qty=0 and lead_time=35 days; escalate now.",
+    "Procurement action: servo valve has qty=2 and lead_time=28 days; escalate now.",
+    "Procurement action: servo valve has qty=2 and lead_time=14 days; escalate now.",
+    "Create digital log entry for TSA-RM-HPP-003 with alert HYD_PRESS_LOW."
   ],
   "traceability": [
     {
       "source": "failure_history",
-      "title": "FH-0015",
-      "score": 22.0,
-      "detail": "TSA-RM-MTR-001 Rolling Mill Drive Motor overheating: OVERHEATING. Symptoms: overheating pattern with vibration 4.97 mm/s, pressure 106.7 bar, oil quality 55.6. Root cause: rotor eccentricity. Action: Perform insulation resistance test."
+      "title": "FH-0029",
+      "score": 19.0,
+      "detail": "TSA-RM-HPP-003 Hydraulic Power Pack pressure leak: PRESSURE_LEAK. Symptoms: pressure leak pattern with vibration 5.32 mm/s, pressure 91.1 bar, oil quality 46.9. Root cause: actuator seal leakage. Action: Pressure decay test."
     },
     {
       "source": "failure_history",
-      "title": "FH-0077",
-      "score": 22.0,
-      "detail": "TSA-RM-MTR-001 Rolling Mill Drive Motor overheating: OVERHEATING. Symptoms: overheating pattern with vibration 4.97 mm/s, pressure 106.7 bar, oil quality 55.6. Root cause: rotor eccentricity. Action: Perform insulation resistance test."
+      "title": "FH-0035",
+      "score": 19.0,
+      "detail": "TSA-RM-HPP-003 Hydraulic Power Pack pressure leak: PRESSURE_LEAK. Symptoms: pressure leak pattern with vibration 5.32 mm/s, pressure 91.1 bar, oil quality 46.9. Root cause: actuator seal leakage. Action: Pressure decay test."
     },
     {
-      "source": "failure_history",
-      "title": "FH-0104",
-      "score": 22.0,
-      "detail": "TSA-RM-MTR-001 Rolling Mill Drive Motor overheating: OVERHEATING. Symptoms: overheating pattern with vibration 4.97 mm/s, pressure 106.7 bar, oil quality 55.6. Root cause: rotor eccentricity. Action: Inspect rotor balance and cooling fan."
+      "source": "maintenance_sops",
+      "title": "Hydraulic pressure instability SOP",
+      "score": 11.0,
+      "detail": "1. Confirm sensor reading from local gauge and control system historian. 2. Check pump, accumulator pressure, valve leakage, and seal condition. 3. If pressure drop affects a critical motion, stop the motion sequence and isolate the hydraulic circuit. 4. Review spare availability for seal kit, servo valve, and hose assembly. 5. Record action taken and actual root cause in the digital maintenance log."
     },
     {
-      "source": "failure_history",
-      "title": "FH-0136",
-      "score": 22.0,
-      "detail": "TSA-RM-MTR-001 Rolling Mill Drive Motor overheating: OVERHEATING. Symptoms: overheating pattern with vibration 4.97 mm/s, pressure 106.7 bar, oil quality 55.6. Root cause: rotor eccentricity. Action: Perform insulation resistance test."
+      "source": "equipment_manuals",
+      "title": "HRM-FURN-02 reheating furnace walking beam",
+      "score": 6.0,
+      "detail": "Criticality: high Common symptoms: - Slab transfer delay. - Hydraulic pressure instability. - Uneven furnace zone temperature. - Walking beam position error. Likely causes: - Hydraulic actuator leakage. - Scale buildup around skid or beam guides. - Furnace zone burner imbalance. - Position sensor drift. Checks: - Compare hydraulic pressure with walking beam travel time. - Inspect skid/beam guide for mechanical obs..."
     },
     {
-      "source": "failure_history",
-      "title": "FH-0145",
-      "score": 22.0,
-      "detail": "TSA-RM-MTR-001 Rolling Mill Drive Motor overheating: OVERHEATING. Symptoms: overheating pattern with vibration 4.97 mm/s, pressure 106.7 bar, oil quality 55.6. Root cause: rotor eccentricity. Action: Inspect rotor balance and cooling fan."
+      "source": "maintenance_sops",
+      "title": "Vibration alarm SOP",
+      "score": 4.0,
+      "detail": "1. Acknowledge the alarm and capture equipment ID, timestamp, coil ID, speed, vibration, temperature, and recent maintenance activity. 2. If vibration is above trip level or paired with abnormal temperature rise, reduce load and prepare controlled stop. 3. Inspect lubrication flow, bearing temperature, coupling condition, and mechanical looseness. 4. If vibration normalizes after load reduction, continue at restri..."
     }
   ],
   "assumptions": [

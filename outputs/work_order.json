@@ -1,12 +1,12 @@
 {
-  "work_order_id": "WO-2026-1717",
-  "created_at": "2026-06-12T17:17",
-  "equipment_id": "TSA-RM-MTR-001",
-  "equipment_name": "Rolling Mill Drive Motor",
-  "asset": "TSA-RM-MTR-001",
-  "priority": "P2 High",
-  "problem": "winding insulation degradation",
-  "root_cause": "thermal overload",
+  "work_order_id": "WO-2026-1815",
+  "created_at": "2026-06-13T18:15",
+  "equipment_id": "TSA-RM-HPP-003",
+  "equipment_name": "Hydraulic Power Pack",
+  "asset": "TSA-RM-HPP-003",
+  "priority": "P1 Critical",
+  "problem": "pressure leak",
+  "root_cause": "actuator seal leakage",
   "status": "Open",
   "lifecycle": [
     "Open",
@@ -15,9 +15,9 @@
     "Completed",
     "Closed"
   ],
-  "estimated_duration_minutes": 180,
-  "estimated_manpower": 4,
-  "estimated_cost_inr": 85000,
+  "estimated_duration_minutes": 240,
+  "estimated_manpower": 5,
+  "estimated_cost_inr": 145000,
   "required_skills": [
     "mechanical inspection",
     "maintenance safety",
@@ -27,37 +27,25 @@
   ],
   "required_parts": [
     {
-      "part": "cooling fan assembly",
-      "available_qty": 0,
-      "lead_time_days": 14,
-      "criticality": "critical"
-    },
-    {
-      "part": "RTD temperature sensor",
-      "available_qty": 0,
-      "lead_time_days": 7,
-      "criticality": "critical"
-    },
-    {
-      "part": "cooling fan assembly",
+      "part": "hydraulic seal kit",
       "available_qty": 0,
       "lead_time_days": 35,
       "criticality": "critical"
     },
     {
-      "part": "cooling fan assembly",
-      "available_qty": 5,
-      "lead_time_days": 35,
-      "criticality": "critical"
-    },
-    {
-      "part": "cooling fan assembly",
+      "part": "servo valve",
       "available_qty": 2,
-      "lead_time_days": 35,
+      "lead_time_days": 28,
+      "criticality": "critical"
+    },
+    {
+      "part": "servo valve",
+      "available_qty": 2,
+      "lead_time_days": 14,
       "criticality": "critical"
     }
   ],
-  "shutdown_duration_hours": 4,
+  "shutdown_duration_hours": 6,
   "safety_permit": "Required",
   "safety_classification": "high energy isolation",
   "assigned_team": "Mechanical Maintenance",
@@ -71,15 +59,15 @@
   "tasks": [
     {
       "sequence": 1,
-      "task": "Move Rolling Mill Drive Motor to restricted operation and prepare a controlled stop window."
+      "task": "Move Hydraulic Power Pack to restricted operation and prepare a controlled stop window."
     },
     {
       "sequence": 2,
-      "task": "Investigate winding insulation degradation caused by thermal overload; execute: Perform insulation resistance test."
+      "task": "Investigate pressure leak caused by actuator seal leakage; execute: Pressure decay test."
     },
     {
       "sequence": 3,
-      "task": "Perform vibration spectrum review, rotor balance check, and motor bearing inspection."
+      "task": "Inspect bearing condition, coupling looseness, and lubrication flow before next campaign."
     },
     {
       "sequence": 4,
@@ -91,66 +79,42 @@
     },
     {
       "sequence": 6,
-      "task": "Trend motor current against load; inspect mechanical drag and expansion timing."
+      "task": "Use prior case FH-0029 as reference: Pressure decay test."
     },
     {
       "sequence": 7,
-      "task": "Use prior case FH-0015 as reference: Perform insulation resistance test."
+      "task": "Procurement action: hydraulic seal kit has qty=0 and lead_time=35 days; escalate now."
     },
     {
       "sequence": 8,
-      "task": "Procurement action: cooling fan assembly has qty=0 and lead_time=35 days; escalate now."
+      "task": "Procurement action: servo valve has qty=2 and lead_time=28 days; escalate now."
     },
     {
       "sequence": 9,
-      "task": "Procurement action: cooling fan assembly has qty=5 and lead_time=35 days; escalate now."
+      "task": "Procurement action: servo valve has qty=2 and lead_time=14 days; escalate now."
     },
     {
       "sequence": 10,
-      "task": "Procurement action: cooling fan assembly has qty=2 and lead_time=35 days; escalate now."
-    },
-    {
-      "sequence": 11,
-      "task": "Procurement action: cooling fan assembly has qty=0 and lead_time=14 days; escalate now."
-    },
-    {
-      "sequence": 12,
-      "task": "Procurement action: RTD temperature sensor has qty=0 and lead_time=7 days; escalate now."
-    },
-    {
-      "sequence": 13,
-      "task": "Create digital log entry for TSA-RM-MTR-001 with alert EARLY_WARNING."
+      "task": "Create digital log entry for TSA-RM-HPP-003 with alert HYD_PRESS_LOW."
     }
   ],
   "required_spares": [
     {
-      "part": "cooling fan assembly",
-      "available_qty": 0,
-      "lead_time_days": 14,
-      "criticality": "critical"
-    },
-    {
-      "part": "RTD temperature sensor",
-      "available_qty": 0,
-      "lead_time_days": 7,
-      "criticality": "critical"
-    },
-    {
-      "part": "cooling fan assembly",
+      "part": "hydraulic seal kit",
       "available_qty": 0,
       "lead_time_days": 35,
       "criticality": "critical"
     },
     {
-      "part": "cooling fan assembly",
-      "available_qty": 5,
-      "lead_time_days": 35,
-      "criticality": "critical"
-    },
-    {
-      "part": "cooling fan assembly",
+      "part": "servo valve",
       "available_qty": 2,
-      "lead_time_days": 35,
+      "lead_time_days": 28,
+      "criticality": "critical"
+    },
+    {
+      "part": "servo valve",
+      "available_qty": 2,
+      "lead_time_days": 14,
       "criticality": "critical"
     }
   ],

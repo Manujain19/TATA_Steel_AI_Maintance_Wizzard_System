@@ -123,3 +123,5 @@ timestamp,equipment_id,alert,risk_level,urgency,probable_fault,first_action
 2026-06-11T18:27:51.946676+00:00,TSA-RM-MTR-001,EARLY_WARNING,high,immediate,winding insulation degradation,Move Rolling Mill Drive Motor to restricted operation and prepare a controlled stop window.
 2026-06-12T10:16:24.912485+00:00,TSA-RM-MTR-001,EARLY_WARNING,high,immediate,winding insulation degradation,Move Rolling Mill Drive Motor to restricted operation and prepare a controlled stop window.
 2026-06-12T11:47:22.598351+00:00,TSA-RM-MTR-001,EARLY_WARNING,high,immediate,winding insulation degradation,Move Rolling Mill Drive Motor to restricted operation and prepare a controlled stop window.
+2026-06-13T07:39:05.468597+00:00,TSA-RM-MTR-001,EARLY_WARNING,high,immediate,winding insulation degradation,Move Rolling Mill Drive Motor to restricted operation and prepare a controlled stop window.
+2026-06-13T12:45:47.738627+00:00,TSA-RM-HPP-003,HYD_PRESS_LOW,critical,immediate,pressure leak,Move Hydraulic Power Pack to restricted operation and prepare a controlled stop window.

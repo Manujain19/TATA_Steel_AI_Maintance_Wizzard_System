@@ -5,30 +5,49 @@ services:
     plan: starter
     autoDeploy: true
     healthCheckPath: /api/system-health
+
     envVars:
       - key: LLM_PROVIDER
         value: groq
+
       - key: LLAMA_MODEL
         value: llama-3.3-70b-versatile
+
       - key: VECTOR_DB
         value: chromadb
+
       - key: CHROMA_PATH
         value: /app/.vectorstores/chromadb
+
       - key: MODEL_MODE
         value: download_if_missing
+
       - key: MODEL_CACHE_DIR
         value: /app/.model_cache
+
       - key: ALLOW_MODEL_FALLBACK
         value: true
+
       - key: AUTO_INDEX_VECTOR_STORE
         value: true
+
       - key: BACKGROUND_PRELOAD
-        value: true
+        value: false
+
       - key: ENABLE_POSTGRES
         value: false
+
       - key: EAGER_LOAD_AI_MODELS
         value: false
+
       - key: ENABLE_RUNTIME_MODEL_LOADING
         value: true
+
+      - key: WEB_CONCURRENCY
+        value: 1
+
+      - key: PYTHONUNBUFFERED
+        value: 1
+
       - key: GROQ_API_KEY
         sync: false
