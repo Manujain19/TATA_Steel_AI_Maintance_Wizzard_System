@@ -657,9 +657,11 @@ def build_preload_jobs() -> dict[str, Callable]:
 
 
 def ensure_preload_started(reason: str = "startup") -> bool:
-    if not settings.background_preload_ai_models:
+    if not settings.background_preload_ai_models and reason == "startup":
         logger.warning("Preload launch skipped reason=%s background_preload=false", reason)
         return False
+    if not settings.background_preload_ai_models:
+        logger.warning("Preload launch recovered from status request despite BACKGROUND_PRELOAD=false reason=%s", reason)
     if preload_manager.running or preload_manager.completed or preload_manager.started_at:
         return False
     BACKGROUND_STATUS.update(

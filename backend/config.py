@@ -14,7 +14,17 @@ class Settings:
     llm_provider = os.getenv("LLM_PROVIDER", os.getenv("STEELMIND_PROVIDER", "groq"))
     vector_db = os.getenv("VECTOR_DB", "chromadb").lower()
     database_url = os.getenv("DATABASE_URL", "postgresql://maintenance:maintenance@postgres:5432/maintenance_wizard")
-    chroma_path = os.getenv("CHROMA_PATH", str(ROOT_DIR / ".vectorstores" / "chromadb"))
+    _raw_chroma_path = Path(os.getenv("CHROMA_PATH", str(ROOT_DIR / ".vectorstores" / "chromadb")))
+    _resolved_chroma_path = _raw_chroma_path if _raw_chroma_path.is_absolute() else ROOT_DIR / _raw_chroma_path
+    if not _resolved_chroma_path.exists():
+        for _candidate in (
+            ROOT_DIR / ".vectorstores" / "chromadb",
+            ROOT_DIR / "vectorstores" / "chromadb",
+        ):
+            if _candidate.exists():
+                _resolved_chroma_path = _candidate
+                break
+    chroma_path = str(_resolved_chroma_path)
     qdrant_url = os.getenv("QDRANT_URL", "http://qdrant:6333")
     embedding_model = os.getenv("EMBEDDING_MODEL", "sentence-transformers/all-MiniLM-L6-v2")
     reranker_model = os.getenv("RERANKER_MODEL", "cross-encoder/ms-marco-MiniLM-L-6-v2")
